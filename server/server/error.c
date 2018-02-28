@@ -38,7 +38,7 @@ void err_dump(const char *fmt, ...) {
     err_doit(1, fmt, ap);
     va_end(ap);
     abort();
-    exit(1);
+//    exit(1);
 }
 
 void err_msg(const char *fmt, ...) {

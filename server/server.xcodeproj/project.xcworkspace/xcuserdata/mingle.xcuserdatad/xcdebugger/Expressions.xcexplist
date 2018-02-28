@@ -8,6 +8,9 @@
             <PersistentString
                value = "listenfd">
             </PersistentString>
+            <PersistentString
+               value = "base_socket_list">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
    </ContextStates>

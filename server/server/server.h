@@ -9,6 +9,7 @@
 #ifndef server_h
 #define server_h
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <net/if.h>
@@ -19,11 +20,13 @@
 #include <sys/errno.h>
 #include <fcntl.h>
 #include <uuid/uuid.h>
+#include "base_socket.h"
 
 #define LISTENQ 1024
-#define MAXLINE 1024
+#define MAXLINE 4096
 
 extern int kq, listenfd;
+extern Base_socket *base_socket_list;
 
 typedef struct addrinfo Addrinfo;
 typedef struct timespec Timespec;
