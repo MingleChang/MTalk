@@ -11,6 +11,25 @@
 int kq, listenfd;
 Base_socket *base_socket_list;
 
+void handleAccept(int fd) {
+    int connfd = accept(fd, NULL, NULL);
+    if (connfd < 0) {
+        return;
+    }
+    Set_non_block(connfd);
+    Fd_queue_add_event(kq, connfd, SOCKET_READ | SOCKET_EXCEP);
+    Base_socket_add(base_socket_list, connfd);
+}
+
+void handleRead(int fd) {
+    Base_socket *read_socket = Base_socket_find(base_socket_list, fd);
+    Base_socket_read(read_socket);
+}
+
+void handleWrite(int fd) {
+    
+}
+
 int main(int argc, const char * argv[]) {
     char *host = NULL;
     char *serv = "8000";
@@ -27,26 +46,11 @@ int main(int argc, const char * argv[]) {
         for (int i = 0; i < n; i++) {
             struct kevent event = eventList[i];
             if (event.ident == listenfd) {
-                int connfd = accept(listenfd, NULL, NULL);
-                Set_non_block(connfd);
-                Fd_queue_add_event(kq, connfd, SOCKET_READ | SOCKET_EXCEP);
-                Base_socket_add(base_socket_list, connfd);
+                handleAccept(listenfd);
             }else if (event.filter == EVFILT_READ) {
-                char buff[MAXLINE];
-                int connfd = (int)event.ident;
-                n = read(connfd, buff, (size_t)MAXLINE);
-                if (n <= 0) {
-                    Base_socket_remove(base_socket_list, connfd);
-                    Fd_queue_delete_event(kq, connfd, SOCKET_READ | SOCKET_EXCEP);
-                    close(connfd);
-                }
-                Base_socket *con_socket = base_socket_list->next;
-                while (con_socket != NULL) {
-                    write(con_socket->fd, buff, n);
-                    con_socket = con_socket->next;
-                }
+                handleRead((int)event.ident);
             }else if (event.filter == EVFILT_WRITE) {
-                printf("write");
+                handleWrite((int)event.ident);
             }
         }
     }

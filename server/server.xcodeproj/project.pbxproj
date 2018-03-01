@@ -11,6 +11,7 @@
 		8299D5E12044F5D700E61A19 /* tcp_listen.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5E02044F5D700E61A19 /* tcp_listen.c */; };
 		8299D5E32044FC2500E61A19 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5E22044FC2500E61A19 /* error.c */; };
 		8299D5E52045096C00E61A19 /* setnonblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5E42045096C00E61A19 /* setnonblock.c */; };
+		82A92AC62047CEE3003E878F /* protocol.c in Sources */ = {isa = PBXBuildFile; fileRef = 82A92AC42047CEE3003E878F /* protocol.c */; };
 		82AFF9BC20452BD20031A942 /* fd_queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 82AFF9BB20452BD20031A942 /* fd_queue.c */; };
 		82AFF9BF20454B940031A942 /* base_socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 82AFF9BD20454B940031A942 /* base_socket.c */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,8 @@
 		8299D5E02044F5D700E61A19 /* tcp_listen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = tcp_listen.c; sourceTree = "<group>"; };
 		8299D5E22044FC2500E61A19 /* error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
 		8299D5E42045096C00E61A19 /* setnonblock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = setnonblock.c; sourceTree = "<group>"; };
+		82A92AC42047CEE3003E878F /* protocol.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = protocol.c; sourceTree = "<group>"; };
+		82A92AC52047CEE3003E878F /* protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = protocol.h; sourceTree = "<group>"; };
 		82AFF9BB20452BD20031A942 /* fd_queue.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fd_queue.c; sourceTree = "<group>"; };
 		82AFF9BD20454B940031A942 /* base_socket.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base_socket.c; sourceTree = "<group>"; };
 		82AFF9BE20454B940031A942 /* base_socket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base_socket.h; sourceTree = "<group>"; };
@@ -77,6 +80,8 @@
 				82AFF9BB20452BD20031A942 /* fd_queue.c */,
 				82AFF9BD20454B940031A942 /* base_socket.c */,
 				82AFF9BE20454B940031A942 /* base_socket.h */,
+				82A92AC42047CEE3003E878F /* protocol.c */,
+				82A92AC52047CEE3003E878F /* protocol.h */,
 			);
 			path = server;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82A92AC62047CEE3003E878F /* protocol.c in Sources */,
 				82AFF9BC20452BD20031A942 /* fd_queue.c in Sources */,
 				8299D5E52045096C00E61A19 /* setnonblock.c in Sources */,
 				8299D5E32044FC2500E61A19 /* error.c in Sources */,

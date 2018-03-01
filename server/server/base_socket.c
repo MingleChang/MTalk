@@ -7,10 +7,13 @@
 //
 
 #include "base_socket.h"
+#include "server.h"
 
 Base_socket *base_socket_init (int fd) {
     Base_socket *base = (Base_socket *)malloc(sizeof(Base_socket));
     base->fd = fd;
+    base->buff = NULL;
+    base->buff_len = 0;
     base->next = NULL;
     return base;
 }
@@ -50,6 +53,35 @@ void base_socket_free (Base_socket *base) {
     }
 }
 
+Base_socket *base_socket_find(Base_socket *base, int fd) {
+    Base_socket *temp_socket = base;
+    while (temp_socket != NULL) {
+        if (temp_socket->fd == fd) {
+            return temp_socket;
+        }else {
+            temp_socket = temp_socket->next;
+        }
+    }
+    return temp_socket;
+}
+
+void base_socket_read(Base_socket *base) {
+    ssize_t n;
+    char buff[MAXLINE];
+    int connfd = base->fd;
+    n = read(connfd, buff, (size_t)MAXLINE);
+    if (n <= 0) {
+        Base_socket_remove(base_socket_list, connfd);
+        Fd_queue_delete_event(kq, connfd, SOCKET_READ | SOCKET_EXCEP);
+        close(connfd);
+    }
+    Base_socket *con_socket = base_socket_list->next;
+    while (con_socket != NULL) {
+        write(con_socket->fd, buff, n);
+        con_socket = con_socket->next;
+    }
+}
+
 Base_socket *Base_socket_init(int fd) {
     return base_socket_init(fd);
 }
@@ -62,4 +94,12 @@ void Base_socket_remove (Base_socket *base, int fd) {
 }
 void Base_socket_free (Base_socket *base) {
     base_socket_free(base);
+}
+
+Base_socket *Base_socket_find(Base_socket *base, int fd) {
+    return base_socket_find(base, fd);
+}
+
+void Base_socket_read(Base_socket *base) {
+    base_socket_read(base);
 }
