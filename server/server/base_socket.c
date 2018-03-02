@@ -86,6 +86,7 @@ void base_socket_read(Base_socket *base) {
     ssize_t n;
     size_t max_length;
     char buff[MAXLINE];
+    memset(buff, 0, MAXLINE);
     int connfd = base->fd;
     if (base->head_buff_len < sizeof(Protocol_head)) {
         max_length = sizeof(Protocol_head) - base->head_buff_len;
