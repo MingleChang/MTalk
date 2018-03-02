@@ -24,6 +24,10 @@
 
 #define LISTENQ 1024
 #define MAXLINE 4096
+#define HEART_BEAT 60
+
+#define MIN(a,b) a<b?a:b
+#define MAX(a,b) a>b?a:b
 
 extern int kq, listenfd;
 extern Base_socket *base_socket_list;
