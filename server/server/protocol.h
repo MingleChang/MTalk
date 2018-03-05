@@ -15,6 +15,8 @@
 #define PROTOCOL_AUTH 0x2435
 
 //协议类型定义
+//错误
+#define PROTOCOL_TYPE_ERROR 0x0000
 //测试协议，数据后群发data数据
 #define PROTOCOL_TYPE_TEST 0x0001
 //心跳
@@ -53,5 +55,12 @@ struct protocol_data {
 
 typedef struct protocol_head Protocol_head;
 typedef struct protocol_data Protocol_data;
+
+struct data_error {
+    uint32_t code;
+    uint32_t type;
+    char *msg;
+    char *local_msg;
+};
 
 #endif /* protocol_h */
