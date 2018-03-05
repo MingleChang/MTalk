@@ -91,18 +91,22 @@ void base_socket_read(Base_socket *base) {
     if (base->head_buff_len < sizeof(Protocol_head)) {
         max_length = sizeof(Protocol_head) - base->head_buff_len;
         n = read(connfd, buff, max_length);
-        base->head_buff = realloc(base->head_buff, base->head_buff_len + n);
-        memcpy(base->head_buff + base->head_buff_len, buff, n);
-        base->head_buff_len = base->head_buff_len + n;
-        if (base->head_buff_len == sizeof(Protocol_head)) {
-            memcpy(&base->head, base->head_buff, base->head_buff_len);
+        if (n > 0) {
+            base->head_buff = realloc(base->head_buff, base->head_buff_len + n);
+            memcpy(base->head_buff + base->head_buff_len, buff, n);
+            base->head_buff_len = base->head_buff_len + n;
+            if (base->head_buff_len == sizeof(Protocol_head)) {
+                memcpy(&base->head, base->head_buff, base->head_buff_len);
+            }
         }
     }else {
         max_length = MIN(base->head.length - base->data_buff_len, MAXLINE);
         n = read(connfd, buff, max_length);
-        base->data_buff = realloc(base->data_buff, base->data_buff_len + n);
-        memcpy(base->data_buff + base->data_buff_len, buff, n);
-        base->data_buff_len = base->data_buff_len + n;
+        if (n > 0) {
+            base->data_buff = realloc(base->data_buff, base->data_buff_len + n);
+            memcpy(base->data_buff + base->data_buff_len, buff, n);
+            base->data_buff_len = base->data_buff_len + n;
+        }
     }
     if (n <= 0) {
         Base_socket_remove(base_socket_list, connfd);
@@ -111,26 +115,14 @@ void base_socket_read(Base_socket *base) {
     }
     if (base->head_buff_len == sizeof(Protocol_head) && base->data_buff_len == base->head.length) {
         //处理数据
-        
+        Base_socket *con_socket = base_socket_list->next;
+            while (con_socket != NULL) {
+                write(con_socket->fd, base->data_buff, n);
+                con_socket = con_socket->next;
+        }
         //清除缓存
         Base_socket_clear(base);
     }
-
-    
-//    ssize_t n;
-//    char buff[MAXLINE];
-//    int connfd = base->fd;
-//    n = read(connfd, buff, (size_t)MAXLINE);
-//    if (n <= 0) {
-//        Base_socket_remove(base_socket_list, connfd);
-//        Fd_queue_delete_event(kq, connfd, SOCKET_READ | SOCKET_EXCEP);
-//        close(connfd);
-//    }
-//    Base_socket *con_socket = base_socket_list->next;
-//    while (con_socket != NULL) {
-//        write(con_socket->fd, buff, n);
-//        con_socket = con_socket->next;
-//    }
 }
 
 Base_socket *Base_socket_init(int fd) {

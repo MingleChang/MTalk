@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 
+#define PROTOCOL_VERSION 0x0001
+#define PROTOCOL_AUTH 0x2435
+
 struct protocol_head {
     uint16_t version;   //协议版本号
     uint16_t auth;      //认证
