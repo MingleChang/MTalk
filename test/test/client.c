@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.no = 0;
-    head.type = 1;
+    head.type = PROTOCOL_TYPE_TEST;
     head.length = 0;
     char sendline[MAXLINE], recvline[MAXLINE];
     
