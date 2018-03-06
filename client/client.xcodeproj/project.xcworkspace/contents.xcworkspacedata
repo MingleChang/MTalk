@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:test.xcodeproj">
+      location = "self:/Users/mingle/Code/__GITHUB/MTalk/test/client.xcodeproj">
    </FileRef>
 </Workspace>

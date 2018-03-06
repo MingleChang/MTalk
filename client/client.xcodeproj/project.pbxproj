@@ -26,7 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8270E2CF204D17500096A094 /* test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test; sourceTree = BUILT_PRODUCTS_DIR; };
+		8270E2CF204D17500096A094 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 		8270E2D9204D17A10096A094 /* client.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = client.c; sourceTree = "<group>"; };
 		8270E2DA204D17A10096A094 /* client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
 		8270E2DC204D18470096A094 /* tcp_connect.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = tcp_connect.c; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		8270E2C6204D17500096A094 = {
 			isa = PBXGroup;
 			children = (
-				8270E2D1204D17500096A094 /* test */,
+				8270E2D1204D17500096A094 /* client */,
 				8270E2D0204D17500096A094 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,12 +57,12 @@
 		8270E2D0204D17500096A094 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8270E2CF204D17500096A094 /* test */,
+				8270E2CF204D17500096A094 /* client */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8270E2D1204D17500096A094 /* test */ = {
+		8270E2D1204D17500096A094 /* client */ = {
 			isa = PBXGroup;
 			children = (
 				8270E2E0204D21440096A094 /* protocol.c */,
@@ -72,15 +72,15 @@
 				8270E2DC204D18470096A094 /* tcp_connect.c */,
 				8270E2DE204D191C0096A094 /* error.c */,
 			);
-			path = test;
+			path = client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8270E2CE204D17500096A094 /* test */ = {
+		8270E2CE204D17500096A094 /* client */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8270E2D6204D17500096A094 /* Build configuration list for PBXNativeTarget "test" */;
+			buildConfigurationList = 8270E2D6204D17500096A094 /* Build configuration list for PBXNativeTarget "client" */;
 			buildPhases = (
 				8270E2CB204D17500096A094 /* Sources */,
 				8270E2CC204D17500096A094 /* Frameworks */,
@@ -90,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = test;
+			name = client;
 			productName = test;
-			productReference = 8270E2CF204D17500096A094 /* test */;
+			productReference = 8270E2CF204D17500096A094 /* client */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8270E2CA204D17500096A094 /* Build configuration list for PBXProject "test" */;
+			buildConfigurationList = 8270E2CA204D17500096A094 /* Build configuration list for PBXProject "client" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -122,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8270E2CE204D17500096A094 /* test */,
+				8270E2CE204D17500096A094 /* client */,
 			);
 		};
 /* End PBXProject section */
@@ -266,7 +266,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8270E2CA204D17500096A094 /* Build configuration list for PBXProject "test" */ = {
+		8270E2CA204D17500096A094 /* Build configuration list for PBXProject "client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8270E2D4204D17500096A094 /* Debug */,
@@ -275,7 +275,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8270E2D6204D17500096A094 /* Build configuration list for PBXNativeTarget "test" */ = {
+		8270E2D6204D17500096A094 /* Build configuration list for PBXNativeTarget "client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8270E2D7204D17500096A094 /* Debug */,
