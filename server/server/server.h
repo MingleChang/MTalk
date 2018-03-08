@@ -21,10 +21,13 @@
 #include <fcntl.h>
 #include <uuid/uuid.h>
 #include "base_socket.h"
+#include "cJSON/cJSON.h"
+#include "handle.h"
+#include "protocol.h"
 
 #define LISTENQ 1024
 #define MAXLINE 4096
-#define HEART_BEAT 60
+#define HEART_BEAT 10
 
 #define MIN(a,b) a<b?a:b
 #define MAX(a,b) a>b?a:b

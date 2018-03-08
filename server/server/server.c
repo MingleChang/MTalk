@@ -11,6 +11,11 @@
 int kq, listenfd;
 Base_socket *base_socket_list;
 
+static void sig_alrm(int signo) {
+    Base_socket_heart_beat();
+    alarm(1);
+}
+
 void handleAccept(int fd) {
     int connfd = accept(fd, NULL, NULL);
     if (connfd < 0) {
@@ -40,6 +45,8 @@ int main(int argc, const char * argv[]) {
     kq = Fd_queue_init();
     Fd_queue_add_event(kq, listenfd, SOCKET_READ | SOCKET_EXCEP);
     base_socket_list = Base_socket_init(listenfd);
+    signal(SIGALRM, sig_alrm);
+    alarm(1);
     for (;;) {
         struct kevent eventList[MAXLINE];
         n = kevent(kq, NULL, 0, eventList, MAXLINE, NULL);

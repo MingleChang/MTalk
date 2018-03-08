@@ -115,13 +115,26 @@ void base_socket_read(Base_socket *base) {
     }
     if (base->head_buff_len == sizeof(Protocol_head) && base->data_buff_len == base->head.length) {
         //处理数据
-        Base_socket *con_socket = base_socket_list->next;
-            while (con_socket != NULL) {
-                write(con_socket->fd, base->data_buff, n);
-                con_socket = con_socket->next;
-        }
+        Handle(base);
         //清除缓存
         Base_socket_clear(base);
+    }
+}
+
+void base_socket_heart_beat (void) {
+    Base_socket *pre = base_socket_list;
+    Base_socket *temp_socket = pre->next;
+    while (temp_socket != NULL) {
+        temp_socket->heartbeat--;
+        err_msg("fd:%ld  heartbeat:%ld", temp_socket->fd, temp_socket->heartbeat);
+        if (temp_socket->heartbeat == 0) {
+            close(temp_socket->fd);
+            Base_socket_remove(base_socket_list, temp_socket->fd);
+            temp_socket = pre->next;
+        }else {
+            pre = temp_socket;
+            temp_socket = temp_socket->next;
+        }
     }
 }
 
@@ -141,7 +154,9 @@ void Base_socket_clear(Base_socket *base) {
 void Base_socket_free (Base_socket *base) {
     base_socket_free(base);
 }
-
+void Base_socket_heart_beat (void) {
+    base_socket_heart_beat();
+}
 Base_socket *Base_socket_find(Base_socket *base, int fd) {
     return base_socket_find(base, fd);
 }

@@ -15,7 +15,7 @@
 
 struct base_socket {
     int fd;
-    int heartbeat;
+    int heartbeat; //心跳
     
     void *data_buff;
     ssize_t data_buff_len;
@@ -36,5 +36,6 @@ void Base_socket_free (Base_socket *base);
 
 Base_socket *Base_socket_find(Base_socket *base, int fd);
 void Base_socket_read(Base_socket *base);
+void Base_socket_heart_beat (void);
 
 #endif /* base_socket_h */

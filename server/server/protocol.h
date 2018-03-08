@@ -56,11 +56,17 @@ struct protocol_data {
 typedef struct protocol_head Protocol_head;
 typedef struct protocol_data Protocol_data;
 
+//PROTOCOL_TYPE_ERROR 错误数据结构
 struct data_error {
     uint32_t code;
     uint32_t type;
     char *msg;
     char *local_msg;
 };
+typedef struct data_error Data_error;
+
+Data_error *dataErrorFromJsonString(char *json);
+char *dataErrorToJsonString(Data_error *data_error);
+void dataErrorFree(Data_error *data_error);
 
 #endif /* protocol_h */
