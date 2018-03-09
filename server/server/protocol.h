@@ -40,21 +40,14 @@
 #define PROTOCOL_TYPE_SEND_MSG_REQ 0x0100
 #define PROTOCOL_TYPE_SEND_MSG_RES 0x0101
 
-struct protocol_head {
+struct protocol {
     uint16_t version;   //协议版本号：PROTOCOL_VERSION，用于兼容
     uint16_t auth;      //认证：PROTOCOL_AUTH，如果不为PROTOCOL_AUTH则说明不符合协议规范
     uint32_t no;        //序号：当前发送数据编号
     uint32_t type;      //类型：数据类型定义
     uint32_t length;    //数据长度
 };
-
-struct protocol_data {
-    struct protocol_head head;
-    void *data;
-};
-
-typedef struct protocol_head Protocol_head;
-typedef struct protocol_data Protocol_data;
+typedef struct protocol Protocol;
 
 //PROTOCOL_TYPE_ERROR 错误数据结构
 struct data_error {
@@ -68,5 +61,15 @@ typedef struct data_error Data_error;
 Data_error *dataErrorFromJsonString(char *json);
 char *dataErrorToJsonString(Data_error *data_error);
 void dataErrorFree(Data_error *data_error);
+
+struct login_request {
+    
+};
+typedef struct login_request Login_request;
+
+struct login_response {
+    char *id;//创建一个用户id返回
+};
+typedef struct login_response Login_response;
 
 #endif /* protocol_h */

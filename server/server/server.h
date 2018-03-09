@@ -24,6 +24,8 @@
 #include "cJSON/cJSON.h"
 #include "handle.h"
 #include "protocol.h"
+#include "utils.h"
+#include "fd_queue.h"
 
 #define LISTENQ 1024
 #define MAXLINE 4096
@@ -46,12 +48,6 @@ enum {
 };
 
 int Tcp_listen(const char *host, const char *serv, socklen_t *addrlenp);
-
-void Set_non_block(int fd);
-
-int Fd_queue_init(void);
-void Fd_queue_add_event(int fq, int fd, uint8_t event);
-void Fd_queue_delete_event(int fq, int fd, uint8_t event);
 
 void err_dump(const char *, ...);
 void err_msg(const char *, ...);

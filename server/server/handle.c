@@ -17,13 +17,18 @@ int handleTest(Base_socket *socket) {
     }
     return 0;
 }
-
+//处理PROTOCOL_TYPE_HEART_BEAT类型数据
 int handleHeartBeat(Base_socket *socket) {
     socket->heartbeat = HEART_BEAT;
     return 0;
 }
 
 int handle(Base_socket *socket) {
+    if (socket->head.auth != PROTOCOL_AUTH) {
+        err_msg("Auth is Error");
+        Base_socket_close(socket);
+        return -1;
+    }
     switch (socket->head.type) {
         case PROTOCOL_TYPE_TEST:{
             return handleTest(socket);

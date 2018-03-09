@@ -10,12 +10,12 @@
 		8299D5D92044EFAE00E61A19 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5D82044EFAE00E61A19 /* server.c */; };
 		8299D5E12044F5D700E61A19 /* tcp_listen.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5E02044F5D700E61A19 /* tcp_listen.c */; };
 		8299D5E32044FC2500E61A19 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5E22044FC2500E61A19 /* error.c */; };
-		8299D5E52045096C00E61A19 /* setnonblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5E42045096C00E61A19 /* setnonblock.c */; };
 		82A92AC62047CEE3003E878F /* protocol.c in Sources */ = {isa = PBXBuildFile; fileRef = 82A92AC42047CEE3003E878F /* protocol.c */; };
 		82ACC0532051153900E9E7CF /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = 82ACC0512051153800E9E7CF /* cJSON.c */; };
 		82ACC0562051348800E9E7CF /* handle.c in Sources */ = {isa = PBXBuildFile; fileRef = 82ACC0542051348800E9E7CF /* handle.c */; };
 		82AFF9BC20452BD20031A942 /* fd_queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 82AFF9BB20452BD20031A942 /* fd_queue.c */; };
 		82AFF9BF20454B940031A942 /* base_socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 82AFF9BD20454B940031A942 /* base_socket.c */; };
+		82E05A2320526F7C00CFCC55 /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 82E05A2120526F7C00CFCC55 /* utils.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +36,6 @@
 		8299D5DF2044F04300E61A19 /* server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = server.h; sourceTree = "<group>"; };
 		8299D5E02044F5D700E61A19 /* tcp_listen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = tcp_listen.c; sourceTree = "<group>"; };
 		8299D5E22044FC2500E61A19 /* error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
-		8299D5E42045096C00E61A19 /* setnonblock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = setnonblock.c; sourceTree = "<group>"; };
 		82A92AC42047CEE3003E878F /* protocol.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = protocol.c; sourceTree = "<group>"; };
 		82A92AC52047CEE3003E878F /* protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = protocol.h; sourceTree = "<group>"; };
 		82ACC0512051153800E9E7CF /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
@@ -46,6 +45,9 @@
 		82AFF9BB20452BD20031A942 /* fd_queue.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fd_queue.c; sourceTree = "<group>"; };
 		82AFF9BD20454B940031A942 /* base_socket.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base_socket.c; sourceTree = "<group>"; };
 		82AFF9BE20454B940031A942 /* base_socket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base_socket.h; sourceTree = "<group>"; };
+		82E05A2120526F7C00CFCC55 /* utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		82E05A2220526F7C00CFCC55 /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		82E05A2420527E4E00CFCC55 /* fd_queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fd_queue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,14 +85,16 @@
 				8299D5D82044EFAE00E61A19 /* server.c */,
 				8299D5E02044F5D700E61A19 /* tcp_listen.c */,
 				8299D5E22044FC2500E61A19 /* error.c */,
-				8299D5E42045096C00E61A19 /* setnonblock.c */,
 				82AFF9BB20452BD20031A942 /* fd_queue.c */,
+				82E05A2420527E4E00CFCC55 /* fd_queue.h */,
 				82AFF9BD20454B940031A942 /* base_socket.c */,
 				82AFF9BE20454B940031A942 /* base_socket.h */,
 				82A92AC42047CEE3003E878F /* protocol.c */,
 				82A92AC52047CEE3003E878F /* protocol.h */,
 				82ACC0542051348800E9E7CF /* handle.c */,
 				82ACC0552051348800E9E7CF /* handle.h */,
+				82E05A2120526F7C00CFCC55 /* utils.c */,
+				82E05A2220526F7C00CFCC55 /* utils.h */,
 			);
 			path = server;
 			sourceTree = "<group>";
@@ -164,8 +168,8 @@
 				82ACC0562051348800E9E7CF /* handle.c in Sources */,
 				82A92AC62047CEE3003E878F /* protocol.c in Sources */,
 				82AFF9BC20452BD20031A942 /* fd_queue.c in Sources */,
-				8299D5E52045096C00E61A19 /* setnonblock.c in Sources */,
 				8299D5E32044FC2500E61A19 /* error.c in Sources */,
+				82E05A2320526F7C00CFCC55 /* utils.c in Sources */,
 				8299D5D92044EFAE00E61A19 /* server.c in Sources */,
 				82ACC0532051153900E9E7CF /* cJSON.c in Sources */,
 				8299D5E12044F5D700E61A19 /* tcp_listen.c in Sources */,

@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "base_socket_heart_beat:base_socket.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "base_socket_list">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "main:server.c">
          <PersistentStrings>
             <PersistentString
