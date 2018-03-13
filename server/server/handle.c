@@ -22,6 +22,11 @@ int handleHeartBeat(Base_socket *socket) {
     socket->heartbeat = HEART_BEAT;
     return 0;
 }
+//处理PROTOCOL_TYPE_LOGIN_REQ类型数据
+int handleLogin(Base_socket *socket) {
+    err_msg("登录");
+    return 0;
+}
 
 int handle(Base_socket *socket) {
     if (socket->head.auth != PROTOCOL_AUTH) {
@@ -36,7 +41,9 @@ int handle(Base_socket *socket) {
         case PROTOCOL_TYPE_HEART_BEAT:{
             return handleHeartBeat(socket);
         }break;
-            
+        case PROTOCOL_TYPE_LOGIN_REQ:{
+            return handleLogin(socket);
+        }break;
         default:
             break;
     }
