@@ -9,6 +9,20 @@
 #include "handle_input.h"
 #include "client.h"
 
+void handle_test(char *data) {
+    char *value = data;
+    if (value == NULL) {
+        err_msg("test [string]");
+        return;
+    }
+    Protocol head;
+    head.version = PROTOCOL_VERSION;
+    head.auth = PROTOCOL_AUTH;
+    head.type = PROTOCOL_TYPE_TEST;
+    head.length = (uint32_t)strlen(value);
+    send_output(head, value);
+}
+
 void handle_login(char *data) {
     char *value = data;
     char *sep = " ";
@@ -35,8 +49,12 @@ void handle_input(char *input) {
     char *value = input;
     char *sep = " ";
     char *command = strsep(&value, sep);
+    if (strcmp(command, "test") == 0) {
+        err_msg("测试");
+        handle_test(value);
+    }
     if (strcmp(command, "login") == 0) {
-        err_msg("登录\n");
+        err_msg("登录");
         handle_login(value);
     }
 }

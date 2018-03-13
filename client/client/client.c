@@ -43,6 +43,7 @@ int main(int argc, const char * argv[]) {
     
     sockfd = Tcp_connect(host, serv);
     err_msg("Connect Success...");
+    err_msg("test [string]");
     err_msg("login [username] [password]");
     FD_ZERO(&rset);
     signal(SIGALRM, sig_alrm);
@@ -57,6 +58,8 @@ int main(int argc, const char * argv[]) {
             if (n <= 0) {
                 return -1;
             }
+            recvline[n] = '\n';
+            recvline[n+1] = '\0';
             fputs(recvline, stdout);
         }
         if (FD_ISSET(fileno(stdin), &rset)) {
@@ -67,12 +70,6 @@ int main(int argc, const char * argv[]) {
             }
             buff[strlen(buff) - 1] = '\0';
             Handle_input(buff);
-//            n = strlen(buff);
-//            char *p = strtok(buff, " ");
-//            head.length = n;
-//            memcpy(recvline, &head, sizeof(Protocol));
-//            memcpy(recvline + sizeof(Protocol), buff, n);
-//            write(sockfd, recvline, sizeof(Protocol) + n);
         }
     }
     
