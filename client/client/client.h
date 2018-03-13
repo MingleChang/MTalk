@@ -9,6 +9,7 @@
 #ifndef client_h
 #define client_h
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -22,11 +23,21 @@
 #include <sys/select.h>
 #include <sys/time.h>
 #include <sys/types.h>
+#include <signal.h>
+#include "protocol.h"
+#include "handle_input.h"
+#include "send_output.h"
+
+#define CLIENT
 
 #define MAXLINE 4096
+#define HEART_BEAT 30
 
 #define MIN(a,b) a<b?a:b
 #define MAX(a,b) a>b?a:b
+
+extern int sockfd;
+extern uint32_t req_no;
 
 typedef struct addrinfo Addrinfo;
 typedef struct timespec Timespec;

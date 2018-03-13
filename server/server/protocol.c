@@ -7,9 +7,10 @@
 //
 
 #include "protocol.h"
-#include "server.h"
+#include "cJSON/cJSON.h"
+#include <stdlib.h>
+#include <string.h>
 
-#pragma mark - Data error
 Data_error *dataErrorFromJsonString(char *json) {
     Data_error *data_error = malloc(sizeof(Data_error));
     cJSON *root = cJSON_Parse(json);
@@ -48,3 +49,38 @@ void dataErrorFree(Data_error *data_error) {
     }
     free(data_error);
 }
+
+
+Login_request *loginRequestFromJsonString(char *json) {
+    Login_request *request = malloc(sizeof(Login_request));
+    cJSON *root = cJSON_Parse(json);
+    cJSON *username = cJSON_GetObjectItem(root, "username");
+    cJSON *password = cJSON_GetObjectItem(root, "password");
+    request->username = (char *)malloc(strlen(username->valuestring));
+    strcat(request->username, username->valuestring);
+    request->password = (char *)malloc(strlen(password->valuestring));
+    strcat(request->password, password->valuestring);
+    cJSON_Delete(root);
+    return request;
+}
+char *loginRequestToJsonString(Login_request *request) {
+    char *result;
+    cJSON *root = cJSON_CreateObject();
+    cJSON_AddStringToObject(root, "username", request->username);
+    cJSON_AddStringToObject(root, "password", request->password);
+    result = cJSON_Print(root);
+    cJSON_Delete(root);
+    return result;
+}
+void loginRequestFree(Login_request *request) {
+    if (request->username != NULL) {
+        free(request->username);
+        request->username = NULL;
+    }
+    if (request->password != NULL) {
+        free(request->password);
+        request->password = NULL;
+    }
+    free(request);
+}
+

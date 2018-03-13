@@ -63,9 +63,13 @@ char *dataErrorToJsonString(Data_error *data_error);
 void dataErrorFree(Data_error *data_error);
 
 struct login_request {
-    
+    char *username;
+    char *password;
 };
 typedef struct login_request Login_request;
+Login_request *loginRequestFromJsonString(char *json);
+char *loginRequestToJsonString(Login_request *request);
+void loginRequestFree(Login_request *request);
 
 struct login_response {
     char *id;//创建一个用户id返回
