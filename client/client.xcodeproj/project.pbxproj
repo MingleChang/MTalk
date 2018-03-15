@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8202FCBD2059154200E4F1AD /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 8202FCBB2059154200E4F1AD /* utils.c */; };
 		822F7A3520576545007727FA /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = 822F7A3320576545007727FA /* cJSON.c */; };
 		822F7A382057BCFA007727FA /* handle_input.c in Sources */ = {isa = PBXBuildFile; fileRef = 822F7A362057BCFA007727FA /* handle_input.c */; };
 		822F7A3B2057C34F007727FA /* send_output.c in Sources */ = {isa = PBXBuildFile; fileRef = 822F7A392057C34F007727FA /* send_output.c */; };
@@ -26,6 +25,7 @@
 		823B70A5205A110500949F06 /* user_info_response.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B7093205A110500949F06 /* user_info_response.c */; };
 		823B70A6205A110500949F06 /* user_list_request.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B7095205A110500949F06 /* user_list_request.c */; };
 		823B70A7205A110500949F06 /* user_list_response.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B7097205A110500949F06 /* user_list_response.c */; };
+		823B70BF205A480100949F06 /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70BE205A480100949F06 /* utils.c */; };
 		8270E2DB204D17A10096A094 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2D9204D17A10096A094 /* client.c */; };
 		8270E2DD204D18470096A094 /* tcp_connect.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2DC204D18470096A094 /* tcp_connect.c */; };
 		8270E2DF204D191C0096A094 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2DE204D191C0096A094 /* error.c */; };
@@ -45,8 +45,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8202FCBB2059154200E4F1AD /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = utils.c; path = ../../server/server/utils.c; sourceTree = "<group>"; };
-		8202FCBC2059154200E4F1AD /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utils.h; path = ../../server/server/utils.h; sourceTree = "<group>"; };
 		822F7A3320576545007727FA /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
 		822F7A3420576545007727FA /* cJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cJSON.h; sourceTree = "<group>"; };
 		822F7A362057BCFA007727FA /* handle_input.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_input.c; sourceTree = "<group>"; };
@@ -83,6 +81,8 @@
 		823B7096205A110500949F06 /* user_list_request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user_list_request.h; sourceTree = "<group>"; };
 		823B7097205A110500949F06 /* user_list_response.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = user_list_response.c; sourceTree = "<group>"; };
 		823B7098205A110500949F06 /* user_list_response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user_list_response.h; sourceTree = "<group>"; };
+		823B70BD205A47FB00949F06 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		823B70BE205A480100949F06 /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
 		8270E2CF204D17500096A094 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 		8270E2D9204D17A10096A094 /* client.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = client.c; sourceTree = "<group>"; };
 		8270E2DA204D17A10096A094 /* client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
@@ -182,8 +182,8 @@
 				822F7A3A2057C34F007727FA /* send_output.h */,
 				8294101B2058F8210004CA2E /* handle_recv.c */,
 				8294101C2058F8210004CA2E /* handle_recv.h */,
-				8202FCBB2059154200E4F1AD /* utils.c */,
-				8202FCBC2059154200E4F1AD /* utils.h */,
+				823B70BE205A480100949F06 /* utils.c */,
+				823B70BD205A47FB00949F06 /* utils.h */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -256,7 +256,6 @@
 				8294101D2058F8210004CA2E /* handle_recv.c in Sources */,
 				823B70A1205A110500949F06 /* register_response.c in Sources */,
 				823B709B205A110500949F06 /* login_response.c in Sources */,
-				8202FCBD2059154200E4F1AD /* utils.c in Sources */,
 				823B70A7205A110500949F06 /* user_list_response.c in Sources */,
 				822F7A382057BCFA007727FA /* handle_input.c in Sources */,
 				823B70A4205A110500949F06 /* user_info_request.c in Sources */,
@@ -264,6 +263,7 @@
 				8270E2DD204D18470096A094 /* tcp_connect.c in Sources */,
 				823B709E205A110500949F06 /* protocol.c in Sources */,
 				823B70A6205A110500949F06 /* user_list_request.c in Sources */,
+				823B70BF205A480100949F06 /* utils.c in Sources */,
 				822F7A3520576545007727FA /* cJSON.c in Sources */,
 				823B70A0205A110500949F06 /* register_request.c in Sources */,
 				823B70A3205A110500949F06 /* send_msg_response.c in Sources */,
