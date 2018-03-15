@@ -15,6 +15,8 @@ struct login_response {
     char *user_id;//创建一个用户id返回
 };
 typedef struct login_response Login_response;
+
+Login_response *loginResponseInit(char *user_id);
 Login_response *loginResponseFromJsonString(char *json);
 char *loginResponseToJsonString(Login_response *response);
 void loginResponseFree(Login_response *response);

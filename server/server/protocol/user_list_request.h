@@ -16,7 +16,7 @@ struct user_list_request {
 };
 typedef struct user_list_request User_list_request;
 
-User_list_request *userListRequestInitWithUserId(char *user_id);
+User_list_request *userListRequestInit(char *user_id);
 User_list_request *userListRequestFromJsonString(char *json);
 char *userListRequestToJsonString(User_list_request *request);
 void userListRequestFree(User_list_request *request);

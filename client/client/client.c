@@ -43,6 +43,7 @@ int main(int argc, const char * argv[]) {
     err_msg("Connect Success...");
     err_msg("test [string]");
     err_msg("login [username] [password]");
+    err_msg("userlist");
     FD_ZERO(&rset);
     signal(SIGALRM, sig_alrm);
     alarm(HEART_BEAT);
@@ -75,7 +76,7 @@ int main(int argc, const char * argv[]) {
             }
             if (n <= 0) {
                 if (errno != EAGAIN && errno != EWOULDBLOCK) {
-                    err_msg("Error:%d",errno);
+                    err_msg("Error:%d %d",errno, n);
                     close(sockfd);
                     break;
                 }

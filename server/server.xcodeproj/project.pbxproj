@@ -26,6 +26,7 @@
 		823B70B1205A457800949F06 /* handle_heart_beat.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70AF205A457800949F06 /* handle_heart_beat.c */; };
 		823B70B4205A458E00949F06 /* handle_login.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70B2205A458E00949F06 /* handle_login.c */; };
 		823B70BC205A47D200949F06 /* handle.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70BB205A47D200949F06 /* handle.c */; };
+		823B70C2205A4C7800949F06 /* handle_user_list.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70C0205A4C7800949F06 /* handle_user_list.c */; };
 		8294101A2058F7050004CA2E /* send_data.c in Sources */ = {isa = PBXBuildFile; fileRef = 829410182058F7050004CA2E /* send_data.c */; };
 		8299D5D92044EFAE00E61A19 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5D82044EFAE00E61A19 /* server.c */; };
 		8299D5E12044F5D700E61A19 /* tcp_listen.c in Sources */ = {isa = PBXBuildFile; fileRef = 8299D5E02044F5D700E61A19 /* tcp_listen.c */; };
@@ -88,6 +89,8 @@
 		823B70B9205A47C100949F06 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server.h; sourceTree = "<group>"; };
 		823B70BA205A47D200949F06 /* handle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handle.h; sourceTree = "<group>"; };
 		823B70BB205A47D200949F06 /* handle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = handle.c; sourceTree = "<group>"; };
+		823B70C0205A4C7800949F06 /* handle_user_list.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_user_list.c; sourceTree = "<group>"; };
+		823B70C1205A4C7800949F06 /* handle_user_list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_user_list.h; sourceTree = "<group>"; };
 		829410182058F7050004CA2E /* send_data.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = send_data.c; sourceTree = "<group>"; };
 		829410192058F7050004CA2E /* send_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = send_data.h; sourceTree = "<group>"; };
 		8299D5D52044EFAE00E61A19 /* server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = server; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +166,8 @@
 				823B70B0205A457800949F06 /* handle_heart_beat.h */,
 				823B70B2205A458E00949F06 /* handle_login.c */,
 				823B70B3205A458E00949F06 /* handle_login.h */,
+				823B70C0205A4C7800949F06 /* handle_user_list.c */,
+				823B70C1205A4C7800949F06 /* handle_user_list.h */,
 			);
 			path = handle;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				823B706A205A0EAF00949F06 /* user_list_request.c in Sources */,
 				823B7067205A0E7400949F06 /* user_info_request.c in Sources */,
 				8299D5D92044EFAE00E61A19 /* server.c in Sources */,
+				823B70C2205A4C7800949F06 /* handle_user_list.c in Sources */,
 				823B704F205A0CC200949F06 /* protocol.c in Sources */,
 				823B70AE205A455C00949F06 /* handle_test.c in Sources */,
 				82ACC0532051153900E9E7CF /* cJSON.c in Sources */,

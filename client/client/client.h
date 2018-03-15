@@ -28,9 +28,10 @@
 #include <netinet/tcp.h>
 #include "utils.h"
 #include "protocol.h"
-#include "handle_input.h"
+#include "handle_input/handle_input.h"
 #include "send_output.h"
 #include "handle_recv.h"
+#include "cJSON.h"
 
 #define CLIENT
 

@@ -24,7 +24,7 @@ int handleLogin(Base_socket *socket) {
     head.auth = PROTOCOL_AUTH;
     head.type = PROTOCOL_TYPE_LOGIN_RES;
     head.no = socket->head.no;
-    head.length = (uint32_t)strlen(json);
+    head.length = (uint32_t)strlen(json) + 1;
     Send_data(socket->fd, head, json);
     free(json);
     return 0;

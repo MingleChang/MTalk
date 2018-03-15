@@ -19,6 +19,7 @@ struct data_error {
 };
 typedef struct data_error Data_error;
 
+Data_error *dataErrorInit(uint32_t code, uint32_t type, char *msg, char *local_msg);
 Data_error *dataErrorFromJsonString(char *json);
 char *dataErrorToJsonString(Data_error *data_error);
 void dataErrorFree(Data_error *data_error);
