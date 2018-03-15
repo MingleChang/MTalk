@@ -84,3 +84,29 @@ void loginRequestFree(Login_request *request) {
     free(request);
 }
 
+
+Login_response *loginResponseFromJsonString(char *json) {
+    Login_response *response = malloc(sizeof(Login_response));
+    cJSON *root = cJSON_Parse(json);
+    cJSON *user_id = cJSON_GetObjectItem(root, "user_id");
+    response->user_id = (char *)malloc(strlen(user_id->valuestring));
+    strcat(response->user_id, user_id->valuestring);
+    cJSON_Delete(root);
+    return response;
+}
+char *loginResponseToJsonString(Login_response *response) {
+    char *result;
+    cJSON *root = cJSON_CreateObject();
+    cJSON_AddStringToObject(root, "user_id", response->user_id);
+    result = cJSON_Print(root);
+    cJSON_Delete(root);
+    return result;
+}
+void loginResponseFree(Login_response *response) {
+    if (response->user_id) {
+        free(response->user_id);
+        response->user_id = NULL;
+    }
+    free(response);
+}
+

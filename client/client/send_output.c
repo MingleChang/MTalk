@@ -14,6 +14,7 @@ void send_output(Protocol head, char *data) {
     memcpy(buff, &head, sizeof(Protocol));
     memcpy(buff + sizeof(Protocol), data, head.length);
     write(sockfd, buff, sizeof(Protocol) + head.length);
+    free(buff);
 }
 
 void Send_output(Protocol head, char *data) {

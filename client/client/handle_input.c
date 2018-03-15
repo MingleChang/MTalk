@@ -9,7 +9,7 @@
 #include "handle_input.h"
 #include "client.h"
 
-void handle_test(char *data) {
+void handle_test_input(char *data) {
     char *value = data;
     if (value == NULL) {
         err_msg("test [string]");
@@ -23,7 +23,7 @@ void handle_test(char *data) {
     send_output(head, value);
 }
 
-void handle_login(char *data) {
+void handle_login_input(char *data) {
     char *value = data;
     char *sep = " ";
     char *username = strsep(&value, sep);
@@ -50,12 +50,10 @@ void handle_input(char *input) {
     char *sep = " ";
     char *command = strsep(&value, sep);
     if (strcmp(command, "test") == 0) {
-        err_msg("测试");
-        handle_test(value);
+        handle_test_input(value);
     }
     if (strcmp(command, "login") == 0) {
-        err_msg("登录");
-        handle_login(value);
+        handle_login_input(value);
     }
 }
 

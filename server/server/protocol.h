@@ -72,8 +72,11 @@ char *loginRequestToJsonString(Login_request *request);
 void loginRequestFree(Login_request *request);
 
 struct login_response {
-    char *id;//创建一个用户id返回
+    char *user_id;//创建一个用户id返回
 };
 typedef struct login_response Login_response;
+Login_response *loginResponseFromJsonString(char *json);
+char *loginResponseToJsonString(Login_response *response);
+void loginResponseFree(Login_response *response);
 
 #endif /* protocol_h */

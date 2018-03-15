@@ -24,6 +24,8 @@ struct base_socket {
     ssize_t head_buff_len;
     Protocol head;
     
+    char user_id[33];
+    
     struct base_socket *next;
 };
 typedef struct base_socket Base_socket;

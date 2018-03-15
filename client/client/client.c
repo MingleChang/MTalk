@@ -10,6 +10,7 @@
 
 int sockfd;
 uint32_t req_no;
+char *user_id;
 
 static void sig_alrm(int signo) {
     Protocol head;
@@ -24,24 +25,21 @@ static void sig_alrm(int signo) {
 
 int main(int argc, const char * argv[]) {
     req_no = 0;
+    user_id = NULL;
     char *host = "127.0.0.1";
     char *serv = "8000";
     int maxfdpi;
-    size_t n;
+    ssize_t n;
+    size_t max_length;
     fd_set rset;
-    void *head_buff, *data_buff;
-    ssize_t head_buff_len, data_buff_len;
+    Protocol head;
+    void *head_buff = NULL, *data_buff = NULL;
+    ssize_t head_buff_len = 0, data_buff_len = 0;
     char buff[MAXLINE];
     
-    Protocol head;
-    head.version = PROTOCOL_VERSION;
-    head.auth = PROTOCOL_AUTH;
-    head.no = 0;
-    head.type = PROTOCOL_TYPE_TEST;
-    head.length = 0;
-    char recvline[MAXLINE];
-    
     sockfd = Tcp_connect(host, serv);
+    Set_non_block(sockfd);
+    Set_non_block(STDIN_FILENO);
     err_msg("Connect Success...");
     err_msg("test [string]");
     err_msg("login [username] [password]");
@@ -49,26 +47,62 @@ int main(int argc, const char * argv[]) {
     signal(SIGALRM, sig_alrm);
     alarm(HEART_BEAT);
     for (;;) {
-        FD_SET(fileno(stdin), &rset);
+        memset(&buff, 0, MAXLINE);
+        FD_SET(STDIN_FILENO, &rset);
         FD_SET(sockfd, &rset);
         maxfdpi = MAX(fileno(stdin), sockfd) + 1;
         select(maxfdpi, &rset, NULL, NULL, NULL);
         if (FD_ISSET(sockfd, &rset)) {
-            n = read(sockfd, recvline, MAXLINE);
-            if (n <= 0) {
-                return -1;
+            if (head_buff_len < sizeof(Protocol)) {
+                max_length = sizeof(Protocol) -  head_buff_len;
+                n = read(sockfd, buff, max_length);
+                if (n > 0) {
+                    head_buff = realloc(head_buff, head_buff_len + n);
+                    memcpy(head_buff + head_buff_len, buff, n);
+                    head_buff_len = head_buff_len + n;
+                    if (head_buff_len == sizeof(Protocol)) {
+                        memcpy(&head, head_buff, head_buff_len);
+                    }
+                }
+            }else {
+                max_length = MIN(head.length - data_buff_len, MAXLINE);
+                n = read(sockfd, buff, max_length);
+                if (n > 0) {
+                    data_buff = realloc(data_buff, data_buff_len + n);
+                    memcpy(data_buff + data_buff_len, buff, n);
+                    data_buff_len = data_buff_len + n;
+                }
             }
-            recvline[n] = '\n';
-            recvline[n+1] = '\0';
-            fputs(recvline, stdout);
+            if (n <= 0) {
+                if (errno != EAGAIN && errno != EWOULDBLOCK) {
+                    err_msg("Error:%d",errno);
+                    close(sockfd);
+                    break;
+                }
+            }
+            if (head_buff_len == sizeof(Protocol) && data_buff_len == head.length) {
+                Handle_recv(head, data_buff);
+                if (head_buff != NULL) {
+                    free(head_buff);
+                    head_buff = NULL;
+                }
+                head_buff_len = 0;
+                if (data_buff != NULL) {
+                    free(data_buff);
+                    data_buff = NULL;
+                }
+                data_buff_len = 0;
+            }
         }
-        if (FD_ISSET(fileno(stdin), &rset)) {
-            memset(&buff, 0, MAXLINE);
-            
-            if (fgets(buff, MAXLINE, stdin) == NULL) {
+        if (FD_ISSET(STDIN_FILENO, &rset)) {
+            n = read(STDIN_FILENO, buff, MAXLINE);
+            if (n<=0) {
                 continue;
             }
-            buff[strlen(buff) - 1] = '\0';
+//            if (fgets(buff, MAXLINE, stdin) == NULL) {
+//                continue;
+//            }
+            buff[n] = '\0';
             Handle_input(buff);
         }
     }

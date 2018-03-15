@@ -24,9 +24,12 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <signal.h>
+#include <netinet/tcp.h>
+#include "utils.h"
 #include "protocol.h"
 #include "handle_input.h"
 #include "send_output.h"
+#include "handle_recv.h"
 
 #define CLIENT
 
@@ -38,6 +41,7 @@
 
 extern int sockfd;
 extern uint32_t req_no;
+extern char *user_id;
 
 typedef struct addrinfo Addrinfo;
 typedef struct timespec Timespec;

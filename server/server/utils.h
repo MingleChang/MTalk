@@ -13,5 +13,6 @@
 
 char *Create_uuid(void);
 void Set_non_block(int fd);
+void Set_no_delay(int fd);
 
 #endif /* utils_h */

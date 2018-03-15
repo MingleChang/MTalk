@@ -24,11 +24,18 @@ void set_non_block(int fd) {
     int flags = fcntl(fd, F_GETFL, 0);
     fcntl(fd, F_SETFL, flags | O_NONBLOCK);
 }
-
+void set_no_delay(int fd) {
+    int enable = 1;
+    setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, (void*)&enable, sizeof(enable));
+}
 char *Create_uuid(void) {
     return create_uuid();
 }
 
 void Set_non_block(int fd) {
     set_non_block(fd);
+}
+
+void Set_no_delay(int fd) {
+    set_no_delay(fd);
 }

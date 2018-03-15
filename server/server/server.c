@@ -22,6 +22,7 @@ void handleAccept(int fd) {
         return;
     }
     Set_non_block(connfd);
+    Set_no_delay(connfd);
     Fd_queue_add_event(kq, connfd, SOCKET_READ | SOCKET_EXCEP);
     Base_socket_add(base_socket_list, connfd);
 }

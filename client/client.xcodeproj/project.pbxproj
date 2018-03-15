@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8202FCBD2059154200E4F1AD /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 8202FCBB2059154200E4F1AD /* utils.c */; };
 		822F7A3520576545007727FA /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = 822F7A3320576545007727FA /* cJSON.c */; };
 		822F7A382057BCFA007727FA /* handle_input.c in Sources */ = {isa = PBXBuildFile; fileRef = 822F7A362057BCFA007727FA /* handle_input.c */; };
 		822F7A3B2057C34F007727FA /* send_output.c in Sources */ = {isa = PBXBuildFile; fileRef = 822F7A392057C34F007727FA /* send_output.c */; };
@@ -14,6 +15,7 @@
 		8270E2DD204D18470096A094 /* tcp_connect.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2DC204D18470096A094 /* tcp_connect.c */; };
 		8270E2DF204D191C0096A094 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2DE204D191C0096A094 /* error.c */; };
 		8270E2E2204D21440096A094 /* protocol.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2E0204D21440096A094 /* protocol.c */; };
+		8294101D2058F8210004CA2E /* handle_recv.c in Sources */ = {isa = PBXBuildFile; fileRef = 8294101B2058F8210004CA2E /* handle_recv.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8202FCBB2059154200E4F1AD /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = utils.c; path = ../../server/server/utils.c; sourceTree = "<group>"; };
+		8202FCBC2059154200E4F1AD /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utils.h; path = ../../server/server/utils.h; sourceTree = "<group>"; };
 		822F7A3320576545007727FA /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
 		822F7A3420576545007727FA /* cJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cJSON.h; sourceTree = "<group>"; };
 		822F7A362057BCFA007727FA /* handle_input.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_input.c; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 		8270E2DE204D191C0096A094 /* error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
 		8270E2E0204D21440096A094 /* protocol.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = protocol.c; path = ../../server/server/protocol.c; sourceTree = "<group>"; };
 		8270E2E1204D21440096A094 /* protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = protocol.h; path = ../../server/server/protocol.h; sourceTree = "<group>"; };
+		8294101B2058F8210004CA2E /* handle_recv.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_recv.c; sourceTree = "<group>"; };
+		8294101C2058F8210004CA2E /* handle_recv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_recv.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,10 @@
 				822F7A372057BCFA007727FA /* handle_input.h */,
 				822F7A392057C34F007727FA /* send_output.c */,
 				822F7A3A2057C34F007727FA /* send_output.h */,
+				8294101B2058F8210004CA2E /* handle_recv.c */,
+				8294101C2058F8210004CA2E /* handle_recv.h */,
+				8202FCBB2059154200E4F1AD /* utils.c */,
+				8202FCBC2059154200E4F1AD /* utils.h */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -157,7 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8270E2DF204D191C0096A094 /* error.c in Sources */,
+				8294101D2058F8210004CA2E /* handle_recv.c in Sources */,
 				8270E2E2204D21440096A094 /* protocol.c in Sources */,
+				8202FCBD2059154200E4F1AD /* utils.c in Sources */,
 				822F7A382057BCFA007727FA /* handle_input.c in Sources */,
 				822F7A3B2057C34F007727FA /* send_output.c in Sources */,
 				8270E2DD204D18470096A094 /* tcp_connect.c in Sources */,

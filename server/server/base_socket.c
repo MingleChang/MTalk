@@ -17,6 +17,7 @@ Base_socket *base_socket_init (int fd) {
     base->head_buff_len = 0;
     base->data_buff = NULL;
     base->data_buff_len = 0;
+    memset(&base->user_id, 0, 33);
     base->next = NULL;
     return base;
 }

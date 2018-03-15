@@ -20,12 +20,14 @@
 #include <sys/errno.h>
 #include <fcntl.h>
 #include <uuid/uuid.h>
+#include <netinet/tcp.h>
 #include "base_socket.h"
 #include "cJSON/cJSON.h"
 #include "handle.h"
 #include "protocol.h"
 #include "utils.h"
 #include "fd_queue.h"
+#include "send_data.h"
 
 #define LISTENQ 1024
 #define MAXLINE 4096

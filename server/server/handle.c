@@ -12,7 +12,7 @@
 int handleTest(Base_socket *socket) {
     Base_socket *con_socket = base_socket_list->next;
     while (con_socket != NULL) {
-        write(con_socket->fd, socket->data_buff, socket->data_buff_len);
+        Send_data(con_socket->fd, socket->head, socket->data_buff);
         con_socket = con_socket->next;
     }
     return 0;
@@ -24,7 +24,23 @@ int handleHeartBeat(Base_socket *socket) {
 }
 //处理PROTOCOL_TYPE_LOGIN_REQ类型数据
 int handleLogin(Base_socket *socket) {
-    err_msg("登录");
+    char *value = socket->data_buff;
+    Login_request *request = loginRequestFromJsonString(value);
+    err_msg("username:%s, password:%s",request->username, request->password);
+    loginRequestFree(request);
+    char *user_id = Create_uuid();
+    memcpy(&socket->user_id, user_id, strlen(user_id));
+    Login_response response;
+    response.user_id = user_id;
+    char *json = loginResponseToJsonString(&response);
+    Protocol head;
+    head.version = PROTOCOL_VERSION;
+    head.auth = PROTOCOL_AUTH;
+    head.type = PROTOCOL_TYPE_LOGIN_RES;
+    head.no = socket->head.no;
+    head.length = (uint32_t)strlen(json);
+    Send_data(socket->fd, head, json);
+    free(json);
     return 0;
 }
 
