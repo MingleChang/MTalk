@@ -21,7 +21,12 @@ void handle_test_recv(Protocol head, void *data) {
 void handle_login_response_recv(Protocol head, void *data) {
     char *value = (char *)data;
     Login_response *response = loginResponseFromJsonString(value);
-    err_msg("Login Success:%s", response->user_id);
+    size_t length = strlen(response->user_id) + 1;
+    user_id = malloc(length);
+    memset(user_id, 0, length);
+    strcpy(user_id, response->user_id);
+    user_id[length] = '\0';
+    err_msg("Login Success:%s", user_id);
     loginResponseFree(response);
 }
 void handle_recv(Protocol head, void *data) {

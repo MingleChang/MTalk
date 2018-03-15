@@ -2,7 +2,7 @@
 //  protocol.h
 //  server
 //
-//  Created by Mingle on 2018/3/1.
+//  Created by Mingle on 2018/3/15.
 //  Copyright © 2018年 Mingle. All rights reserved.
 //
 
@@ -10,6 +10,20 @@
 #define protocol_h
 
 #include <stdio.h>
+#include "data_error.h"
+#include "login_request.h"
+#include "login_response.h"
+#include "register_request.h"
+#include "register_response.h"
+#include "logout_request.h"
+#include "logout_response.h"
+#include "user_info_request.h"
+#include "user_info_response.h"
+#include "user_list_request.h"
+#include "user_list_response.h"
+#include "send_msg_request.h"
+#include "send_msg_response.h"
+#include "recv_msg.h"
 
 #define PROTOCOL_VERSION 0x0001
 #define PROTOCOL_AUTH 0x2435
@@ -39,6 +53,8 @@
 //发送消息
 #define PROTOCOL_TYPE_SEND_MSG_REQ 0x0100
 #define PROTOCOL_TYPE_SEND_MSG_RES 0x0101
+//接收消息
+#define PROTOCOL_TYPE_RECV_MSG 0x0102
 
 struct protocol {
     uint16_t version;   //协议版本号：PROTOCOL_VERSION，用于兼容
@@ -48,35 +64,5 @@ struct protocol {
     uint32_t length;    //数据长度
 };
 typedef struct protocol Protocol;
-
-//PROTOCOL_TYPE_ERROR 错误数据结构
-struct data_error {
-    uint32_t code;
-    uint32_t type;
-    char *msg;
-    char *local_msg;
-};
-typedef struct data_error Data_error;
-
-Data_error *dataErrorFromJsonString(char *json);
-char *dataErrorToJsonString(Data_error *data_error);
-void dataErrorFree(Data_error *data_error);
-
-struct login_request {
-    char *username;
-    char *password;
-};
-typedef struct login_request Login_request;
-Login_request *loginRequestFromJsonString(char *json);
-char *loginRequestToJsonString(Login_request *request);
-void loginRequestFree(Login_request *request);
-
-struct login_response {
-    char *user_id;//创建一个用户id返回
-};
-typedef struct login_response Login_response;
-Login_response *loginResponseFromJsonString(char *json);
-char *loginResponseToJsonString(Login_response *response);
-void loginResponseFree(Login_response *response);
 
 #endif /* protocol_h */

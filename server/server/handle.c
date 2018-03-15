@@ -26,7 +26,7 @@ int handleHeartBeat(Base_socket *socket) {
 int handleLogin(Base_socket *socket) {
     char *value = socket->data_buff;
     Login_request *request = loginRequestFromJsonString(value);
-    err_msg("username:%s, password:%s",request->username, request->password);
+    err_msg("login=>username:%s, password:%s",request->username, request->password);
     loginRequestFree(request);
     char *user_id = Create_uuid();
     memcpy(&socket->user_id, user_id, strlen(user_id));
@@ -41,6 +41,10 @@ int handleLogin(Base_socket *socket) {
     head.length = (uint32_t)strlen(json);
     Send_data(socket->fd, head, json);
     free(json);
+    return 0;
+}
+
+int handleUserList(Base_socket *socket) {
     return 0;
 }
 
@@ -59,6 +63,9 @@ int handle(Base_socket *socket) {
         }break;
         case PROTOCOL_TYPE_LOGIN_REQ:{
             return handleLogin(socket);
+        }break;
+        case PROTOCOL_TYPE_USER_LIST_REQ:{
+            
         }break;
         default:
             break;

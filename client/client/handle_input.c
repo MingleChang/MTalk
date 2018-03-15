@@ -24,6 +24,10 @@ void handle_test_input(char *data) {
 }
 
 void handle_login_input(char *data) {
+    if (user_id != NULL) {
+        err_msg("您已登录：%s\n如需要登录清先退出",user_id);
+        return;
+    }
     char *value = data;
     char *sep = " ";
     char *username = strsep(&value, sep);
@@ -32,16 +36,15 @@ void handle_login_input(char *data) {
         err_msg("login [username] [password]");
         return;
     }
-    Login_request request;
-    request.username = username;
-    request.password = password;
-    char *json = loginRequestToJsonString(&request);
+    Login_request *request = loginRequestInit(username, password);
+    char *json = loginRequestToJsonString(request);
     Protocol head;
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.type = PROTOCOL_TYPE_LOGIN_REQ;
     head.length = (uint32_t)strlen(json);
     send_output(head, json);
+    loginRequestFree(request);
     free(json);
 }
 

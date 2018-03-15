@@ -48,6 +48,7 @@ int main(int argc, const char * argv[]) {
     base_socket_list = Base_socket_init(listenfd);
     signal(SIGALRM, sig_alrm);
     alarm(1);
+    err_msg("server running...");
     for (;;) {
         struct kevent eventList[MAXLINE];
         n = kevent(kq, NULL, 0, eventList, MAXLINE, NULL);
