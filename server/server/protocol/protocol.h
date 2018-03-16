@@ -23,7 +23,7 @@
 #include "user_list_response.h"
 #include "send_msg_request.h"
 #include "send_msg_response.h"
-#include "recv_msg.h"
+#include "message.h"
 
 #define PROTOCOL_VERSION 0x0001
 #define PROTOCOL_AUTH 0x2435
@@ -54,6 +54,7 @@
 #define PROTOCOL_TYPE_SEND_MSG_REQ 0x0100
 #define PROTOCOL_TYPE_SEND_MSG_RES 0x0101
 //接收消息
+#define PROTOCOL_TYPE_SEND_MSG 0x0102
 #define PROTOCOL_TYPE_RECV_MSG 0x0102
 
 struct protocol {

@@ -11,6 +11,7 @@
 #include "handle_heart_beat.h"
 #include "handle_login.h"
 #include "handle_user_list.h"
+#include "handle_send.h"
 
 int handle(Base_socket *socket) {
     if (socket->head.auth != PROTOCOL_AUTH) {
@@ -38,7 +39,7 @@ int handle(Base_socket *socket) {
             return handleUserList(socket);
         }break;
         case PROTOCOL_TYPE_SEND_MSG_REQ:{
-            
+            return handleSend(socket);
         }break;
         default:
             break;

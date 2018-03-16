@@ -44,6 +44,7 @@ int main(int argc, const char * argv[]) {
     err_msg("test [string]");
     err_msg("login [username] [password]");
     err_msg("userlist");
+    err_msg("send [user_id] [message]");
     FD_ZERO(&rset);
     signal(SIGALRM, sig_alrm);
     alarm(HEART_BEAT);
@@ -100,9 +101,6 @@ int main(int argc, const char * argv[]) {
             if (n<=0) {
                 continue;
             }
-//            if (fgets(buff, MAXLINE, stdin) == NULL) {
-//                continue;
-//            }
             buff[n] = '\0';
             Handle_input(buff);
         }

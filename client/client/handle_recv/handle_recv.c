@@ -12,6 +12,8 @@
 #include "handle_error_recv.h"
 #include "handle_login_recv.h"
 #include "handle_user_list_recv.h"
+#include "handle_send_recv.h"
+#include "handle_message_recv.h"
 
 void handle_recv(Protocol head, void *data) {
     if (head.auth != PROTOCOL_AUTH) {
@@ -41,10 +43,10 @@ void handle_recv(Protocol head, void *data) {
             handle_user_list_recv(head, data);
         }break;
         case PROTOCOL_TYPE_SEND_MSG_RES:{
-            
+            handle_send_recv(head, data);
         }break;
         case PROTOCOL_TYPE_RECV_MSG:{
-            
+            handle_message_recv(head, data);
         }break;
         default:
             break;

@@ -11,4 +11,17 @@
 
 #include <stdio.h>
 
+struct send_msg_request {
+    uint32_t type;
+    char *from_user;
+    char *to_user;
+    char *message;
+};
+typedef struct send_msg_request Send_msg_request;
+
+Send_msg_request *sendMsgRequestInit(uint32_t type, char *from_user, char *to_user, char *message);
+Send_msg_request *sendMsgRequestFromJsonString(char *json);
+char *sendMsgRequestToJsonString(Send_msg_request *request);
+void sendMsgRequestFree(Send_msg_request *request);
+
 #endif /* send_msg_request_h */
