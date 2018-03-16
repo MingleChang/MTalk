@@ -15,5 +15,6 @@
 int Fd_queue_init(void);
 void Fd_queue_add_event(int fq, int fd, uint8_t event);
 void Fd_queue_delete_event(int fq, int fd, uint8_t event);
+void Fd_queue_dispatch(int fq, void (*callback)(int fd, uint8_t event));
 
 #endif /* fd_queue_h */

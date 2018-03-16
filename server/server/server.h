@@ -37,7 +37,7 @@
 #define MIN(a,b) a<b?a:b
 #define MAX(a,b) a>b?a:b
 
-extern int kq, listenfd;
+extern int global_fq, listenfd;
 extern Base_socket *base_socket_list;
 
 typedef struct addrinfo Addrinfo;

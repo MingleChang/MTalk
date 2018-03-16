@@ -115,7 +115,7 @@ void base_socket_read(Base_socket *base) {
     }
     if (n <= 0) {
         Base_socket_remove(base_socket_list, connfd);
-        Fd_queue_delete_event(kq, connfd, SOCKET_READ | SOCKET_EXCEP);
+        Fd_queue_delete_event(global_fq, connfd, SOCKET_READ | SOCKET_EXCEP);
         close(connfd);
     }
     if (base->head_buff_len == sizeof(Protocol) && base->data_buff_len == base->head.length) {
