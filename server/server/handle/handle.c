@@ -35,6 +35,9 @@ int handle(Base_socket *socket) {
         case PROTOCOL_TYPE_LOGOUT_REQ:{
             
         }break;
+        case PROTOCOL_TYPE_USER_INFO_REQ:{
+            
+        }break;
         case PROTOCOL_TYPE_USER_LIST_REQ:{
             return handleUserList(socket);
         }break;

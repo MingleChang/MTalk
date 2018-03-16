@@ -22,10 +22,12 @@
 #include <fcntl.h>
 #include <uuid/uuid.h>
 #include <netinet/tcp.h>
-#include "handle/handle.h"
+#include <stdint.h>
+#include <inttypes.h>
+#include "handle.h"
 #include "base_socket.h"
-#include "cJSON/cJSON.h"
-#include "protocol/protocol.h"
+#include "cJSON.h"
+#include "protocol.h"
 #include "utils.h"
 #include "fd_queue.h"
 #include "send_data.h"
