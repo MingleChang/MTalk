@@ -60,7 +60,10 @@ int fd_queue_init() {
 }
 void fd_queue_add_event(int fq, int fd, uint8_t event) {
     struct epoll_event ev;
-    ev.events = EPOLLIN | EPOLLOUT | EPOLLET | EPOLLPRI | EPOLLERR | EPOLLHUP;
+    //边缘触发
+    ev.events = EPOLLIN | EPOLLOUT | EPOLLPRI | EPOLLERR | EPOLLHUP;
+    //水平触发
+//    ev.events = EPOLLIN | EPOLLOUT | EPOLLET | EPOLLPRI | EPOLLERR | EPOLLHUP;
     ev.data.fd = fd;
     epoll_ctl(fq, EPOLL_CTL_ADD, fd, &ev);
 }
