@@ -10,6 +10,7 @@
 #define message_h
 
 #include <stdio.h>
+#include "typedefs.h"
 
 struct message {
     char *id;

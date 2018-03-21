@@ -23,6 +23,7 @@
 #include <netinet/tcp.h>
 #include <stdint.h>
 #include <inttypes.h>
+#include "typedefs.h"
 #include "handle.h"
 #include "base_socket.h"
 #include "cJSON.h"
@@ -30,6 +31,7 @@
 #include "utils.h"
 #include "fd_queue.h"
 #include "send_data.h"
+#include "typedefs.h"
 
 #define LISTENQ 1024
 #define MAXLINE 4096
@@ -43,6 +45,10 @@ extern struct base_socket *base_socket_list;
 
 typedef struct addrinfo Addrinfo;
 typedef struct timespec Timespec;
+
+typedef unsigned int uint32_t;
+typedef unsigned short uint16_t;
+typedef unsigned char uint8_t;
 
 enum {
     SOCKET_READ  = 1,

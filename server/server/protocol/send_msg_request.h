@@ -10,6 +10,7 @@
 #define send_msg_request_h
 
 #include <stdio.h>
+#include "typedefs.h"
 
 struct send_msg_request {
     uint32_t type;
