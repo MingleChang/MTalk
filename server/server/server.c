@@ -43,6 +43,8 @@ void dispatch(int fd, uint8_t event) {
         handleRead(fd);
     }else if (event == SOCKET_WRITE) {
         handleWrite(fd);
+    }else if (event == SOCKET_EXCEP) {
+        
     }
 }
 

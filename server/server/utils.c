@@ -14,7 +14,8 @@ char *create_uuid(void) {
     memchr(result, 0, 33);
     uuid_t uuid;
     uuid_generate(uuid);
-    for(int i=0;i<16;i++) {
+    int i = 0;
+    for(i = 0; i < 16; i++) {
         char c[4];
         snprintf(c, 3, "%02X",uuid[i]);
         strcat(result, c);

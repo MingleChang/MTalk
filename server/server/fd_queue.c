@@ -42,7 +42,8 @@ void fd_queue_delete_event(int fq, int fd, uint8_t event) {
 void fd_queue_dispatch(int fq, void (*callback)(int fd, uint8_t event)) {
     struct kevent eventList[MAXLINE];
     int n = kevent(fq, NULL, 0, eventList, MAXLINE, NULL);
-    for (int i = 0; i < n; i++) {
+    int i = 0;
+    for (i = 0; i < n; i++) {
         struct kevent event = eventList[i];
         if (event.filter == EVFILT_READ) {
             callback((int)event.ident, SOCKET_READ);
@@ -73,7 +74,8 @@ void fd_queue_delete_event(int fq, int fd, uint8_t event) {
 void fd_queue_dispatch(int fq, void (*callback)(int fd, uint8_t event)) {
     struct epoll_event events[MAXLINE];
     int nfds = epoll_wait(fq, events, MAXLINE, NULL);
-    for (int i = 0; i < nfds; i++) {
+    int i = 0;
+    for (i = 0; i < nfds; i++) {
         int fd = events[i].data.fd;
         if (events[i].events & EPOLLIN) {
             callback(fd, SOCKET_READ);
