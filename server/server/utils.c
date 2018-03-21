@@ -11,7 +11,7 @@
 
 char *create_uuid(void) {
     char *result = (char *)malloc(33);
-    memchr(result, 0, 33);
+    memset(result, 0, 33);
     uuid_t uuid;
     uuid_generate(uuid);
     int i = 0;

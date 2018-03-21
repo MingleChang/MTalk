@@ -26,8 +26,8 @@ static void sig_alrm(int signo) {
 int main(int argc, const char * argv[]) {
     req_no = 0;
     user_id = NULL;
-    char *host = "45.77.197.226";
-//    char *host = "127.0.0.1";
+//    char *host = "45.77.197.226";
+    char *host = "127.0.0.1";
     char *serv = "8080";
     int maxfdpi;
     ssize_t n;

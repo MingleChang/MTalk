@@ -15,7 +15,7 @@ int handleLogin(struct base_socket *socket) {
     err_msg("login=>username:%s, password:%s",request->username, request->password);
     loginRequestFree(request);
     char *user_id = Create_uuid();
-    memcpy(&socket->user_id, user_id, strlen(user_id));
+    memcpy(&socket->user_id, user_id, strlen(user_id) + 1);
     Login_response response;
     response.user_id = user_id;
     char *json = loginResponseToJsonString(&response);
