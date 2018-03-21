@@ -9,7 +9,7 @@
 #include "server.h"
 
 int global_fq, listenfd;
-Base_socket *base_socket_list;
+struct base_socket *base_socket_list;
 
 static void sig_alrm(int signo) {
     Base_socket_heart_beat();
@@ -28,7 +28,7 @@ void handleAccept(int fd) {
 }
 
 void handleRead(int fd) {
-    Base_socket *read_socket = Base_socket_find(base_socket_list, fd);
+    struct base_socket *read_socket = Base_socket_find(base_socket_list, fd);
     Base_socket_read(read_socket);
 }
 

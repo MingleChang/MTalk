@@ -16,7 +16,7 @@ void handle_user_list_input(char *data) {
     }
     User_list_request *request = userListRequestInit(user_id);
     char *json = userListRequestToJsonString(request);
-    Protocol head;
+    struct protocol head;
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.type = PROTOCOL_TYPE_USER_LIST_REQ;

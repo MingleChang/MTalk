@@ -8,15 +8,15 @@
 
 #include "server.h"
 
-void send_data(int fd, Protocol head, char *data) {
+void send_data(int fd, struct protocol head, char *data) {
     char *buff = (char *)malloc(sizeof(head) + head.length);
-    memcpy(buff, &head, sizeof(Protocol));
-    memcpy(buff + sizeof(Protocol), data, head.length);
-    write(fd, buff, sizeof(Protocol) + head.length);
+    memcpy(buff, &head, sizeof(struct protocol));
+    memcpy(buff + sizeof(struct protocol), data, head.length);
+    write(fd, buff, sizeof(struct protocol) + head.length);
     err_msg("send to %d type %d data %s", fd, head.type, data);
     free(buff);
 }
 
-void Send_data(int fd, Protocol head, char *data) {
+void Send_data(int fd, struct protocol head, char *data) {
     send_data(fd, head, data);
 }

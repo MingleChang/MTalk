@@ -9,7 +9,7 @@
 #include "handle_login_recv.h"
 #include "client.h"
 
-void handle_login_recv(Protocol head, void *data) {
+void handle_login_recv(struct protocol head, void *data) {
     char *value = (char *)data;
     Login_response *response = loginResponseFromJsonString(value);
     size_t length = strlen(response->user_id) + 1;

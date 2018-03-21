@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "protocol.h"
 
-void handle_user_list_recv(Protocol head, void *data);
+void handle_user_list_recv(struct protocol head, void *data);
 
 #endif /* handle_user_list_recv_h */

@@ -9,7 +9,7 @@
 #include "handle_login.h"
 #include "server.h"
 
-int handleLogin(Base_socket *socket) {
+int handleLogin(struct base_socket *socket) {
     char *value = socket->data_buff;
     Login_request *request = loginRequestFromJsonString(value);
     err_msg("login=>username:%s, password:%s",request->username, request->password);
@@ -19,7 +19,7 @@ int handleLogin(Base_socket *socket) {
     Login_response response;
     response.user_id = user_id;
     char *json = loginResponseToJsonString(&response);
-    Protocol head;
+    struct protocol head;
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.type = PROTOCOL_TYPE_LOGIN_RES;

@@ -9,8 +9,8 @@
 #include "handle_send.h"
 #include "server.h"
 
-int handleSend(Base_socket *socket) {
-    Protocol head;
+int handleSend(struct base_socket *socket) {
+    struct protocol head;
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.type = PROTOCOL_TYPE_SEND_MSG_RES;
@@ -19,13 +19,13 @@ int handleSend(Base_socket *socket) {
     Send_data(socket->fd, head, NULL);
     char *value = (char *)socket->data_buff;
     Send_msg_request *request = sendMsgRequestFromJsonString(value);
-    Base_socket *temp_socket = base_socket_list->next;
+    struct base_socket *temp_socket = base_socket_list->next;
     while (temp_socket != NULL) {
         if (strcmp(temp_socket->user_id, request->to_user) == 0) {
             char *uuid = Create_uuid();
             Message *message = messageInit(uuid, request->type, request->from_user, request->to_user, request->message);
             char *json = messageToJsonString(message);
-            Protocol messageHead;
+            struct protocol messageHead;
             messageHead.version = PROTOCOL_VERSION;
             messageHead.auth = PROTOCOL_AUTH;
             messageHead.type = PROTOCOL_TYPE_SEND_MSG;

@@ -22,24 +22,23 @@ struct base_socket {
     
     void *head_buff;
     ssize_t head_buff_len;
-    Protocol head;
+    struct protocol head;
     
     char user_id[33];
     
     struct base_socket *next;
 };
-typedef struct base_socket Base_socket;
 
-Base_socket *Base_socket_init(int fd);
-void Base_socket_add (Base_socket *base, int fd);
-void Base_socket_remove (Base_socket *base, int fd);
-void Base_socket_clear(Base_socket *base);
-void Base_socket_free (Base_socket *base);
-void Base_socket_free_all (Base_socket *base);
+struct base_socket *Base_socket_init(int fd);
+void Base_socket_add (struct base_socket *base, int fd);
+void Base_socket_remove (struct base_socket *base, int fd);
+void Base_socket_clear(struct base_socket *base);
+void Base_socket_free (struct base_socket *base);
+void Base_socket_free_all (struct base_socket *base);
 
-Base_socket *Base_socket_find(Base_socket *base, int fd);
-void Base_socket_read(Base_socket *base);
+struct base_socket *Base_socket_find(struct base_socket *base, int fd);
+void Base_socket_read(struct base_socket *base);
 void Base_socket_heart_beat (void);
-void Base_socket_close(Base_socket *base);
+void Base_socket_close(struct base_socket *base);
 
 #endif /* base_socket_h */

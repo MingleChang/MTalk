@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "base_socket.h"
 
-int Handle(Base_socket *socket);
+int Handle(struct base_socket *socket);
 
 #endif /* handle_h */

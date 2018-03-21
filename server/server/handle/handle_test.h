@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "base_socket.h"
 
-int handleTest(Base_socket *socket);
+int handleTest(struct base_socket *socket);
 
 #endif /* handle_test_h */

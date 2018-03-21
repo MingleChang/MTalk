@@ -40,7 +40,7 @@
 #define MAX(a,b) a>b?a:b
 
 extern int global_fq, listenfd;
-extern Base_socket *base_socket_list;
+extern struct base_socket *base_socket_list;
 
 typedef struct addrinfo Addrinfo;
 typedef struct timespec Timespec;

@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "base_socket.h"
 
-int handleUserList(Base_socket *socket);
+int handleUserList(struct base_socket *socket);
 
 #endif /* handle_user_list_h */

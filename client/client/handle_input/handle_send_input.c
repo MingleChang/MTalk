@@ -24,7 +24,7 @@ void handle_send_input(char *data) {
     }
     Send_msg_request *request = sendMsgRequestInit(0, user_id, to_user, message);
     char *json = sendMsgRequestToJsonString(request);
-    Protocol head;
+    struct protocol head;
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.type = PROTOCOL_TYPE_SEND_MSG_REQ;

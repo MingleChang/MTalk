@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "protocol.h"
 
-void handle_test_recv(Protocol head, void *data);
+void handle_test_recv(struct protocol head, void *data);
 
 #endif /* handle_test_recv_h */

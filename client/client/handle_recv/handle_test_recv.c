@@ -9,7 +9,7 @@
 #include "handle_test_recv.h"
 #include "client.h"
 
-void handle_test_recv(Protocol head, void *data) {
+void handle_test_recv(struct protocol head, void *data) {
     char *value = (char *)data;
     err_msg("Test=>%s", value);
 }

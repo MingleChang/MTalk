@@ -64,6 +64,5 @@ struct protocol {
     uint32_t type;      //类型：数据类型定义
     uint32_t length;    //数据长度
 };
-typedef struct protocol Protocol;
 
 #endif /* protocol_h */

@@ -13,7 +13,7 @@ uint32_t req_no;
 char *user_id;
 
 static void sig_alrm(int signo) {
-    Protocol head;
+    struct protocol head;
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.no = 0;
@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
     ssize_t n;
     size_t max_length;
     fd_set rset;
-    Protocol head;
+    struct protocol head;
     void *head_buff = NULL, *data_buff = NULL;
     ssize_t head_buff_len = 0, data_buff_len = 0;
     char buff[MAXLINE];
@@ -55,14 +55,14 @@ int main(int argc, const char * argv[]) {
         maxfdpi = MAX(fileno(stdin), sockfd) + 1;
         select(maxfdpi, &rset, NULL, NULL, NULL);
         if (FD_ISSET(sockfd, &rset)) {
-            if (head_buff_len < sizeof(Protocol)) {
-                max_length = sizeof(Protocol) -  head_buff_len;
+            if (head_buff_len < sizeof(struct protocol)) {
+                max_length = sizeof(struct protocol) -  head_buff_len;
                 n = read(sockfd, buff, max_length);
                 if (n > 0) {
                     head_buff = realloc(head_buff, head_buff_len + n);
                     memcpy(head_buff + head_buff_len, buff, n);
                     head_buff_len = head_buff_len + n;
-                    if (head_buff_len == sizeof(Protocol)) {
+                    if (head_buff_len == sizeof(struct protocol)) {
                         memcpy(&head, head_buff, head_buff_len);
                     }
                 }
@@ -82,7 +82,7 @@ int main(int argc, const char * argv[]) {
                     break;
                 }
             }
-            if (head_buff_len == sizeof(Protocol) && data_buff_len == head.length) {
+            if (head_buff_len == sizeof(struct protocol) && data_buff_len == head.length) {
                 Handle_recv(head, data_buff);
                 if (head_buff != NULL) {
                     free(head_buff);

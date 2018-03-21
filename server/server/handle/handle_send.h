@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "base_socket.h"
 
-int handleSend(Base_socket *socket);
+int handleSend(struct base_socket *socket);
 
 #endif /* handle_send_h */

@@ -15,7 +15,7 @@
 #include "handle_send_recv.h"
 #include "handle_message_recv.h"
 
-void handle_recv(Protocol head, void *data) {
+void handle_recv(struct protocol head, void *data) {
     if (head.auth != PROTOCOL_AUTH) {
         err_msg("Auth is Error");
         return;
@@ -53,6 +53,6 @@ void handle_recv(Protocol head, void *data) {
     }
 }
 
-void Handle_recv(Protocol head, void *data) {
+void Handle_recv(struct protocol head, void *data) {
     handle_recv(head, data);
 }

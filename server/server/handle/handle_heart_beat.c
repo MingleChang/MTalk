@@ -9,7 +9,7 @@
 #include "handle_heart_beat.h"
 #include "server.h"
 
-int handleHeartBeat(Base_socket *socket) {
+int handleHeartBeat(struct base_socket *socket) {
     socket->heartbeat = HEART_BEAT;
     return 0;
 }

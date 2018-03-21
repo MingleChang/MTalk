@@ -24,7 +24,7 @@ void handle_login_input(char *data) {
     }
     Login_request *request = loginRequestInit(username, password);
     char *json = loginRequestToJsonString(request);
-    Protocol head;
+    struct protocol head;
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.type = PROTOCOL_TYPE_LOGIN_REQ;

@@ -424,6 +424,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = USZ9R7RQAA;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -433,6 +434,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = USZ9R7RQAA;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

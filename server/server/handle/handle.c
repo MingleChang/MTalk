@@ -13,7 +13,7 @@
 #include "handle_user_list.h"
 #include "handle_send.h"
 
-int handle(Base_socket *socket) {
+int handle(struct base_socket *socket) {
     if (socket->head.auth != PROTOCOL_AUTH) {
         err_msg("Auth is Error");
         Base_socket_close(socket);
@@ -50,6 +50,6 @@ int handle(Base_socket *socket) {
     return 0;
 }
 
-int Handle(Base_socket *socket) {
+int Handle(struct base_socket *socket) {
     return handle(socket);
 }

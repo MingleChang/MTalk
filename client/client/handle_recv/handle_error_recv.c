@@ -9,7 +9,7 @@
 #include "handle_error_recv.h"
 #include "client.h"
 
-void handle_error_recv(Protocol head, void *data) {
+void handle_error_recv(struct protocol head, void *data) {
     char *value = (char *)data;
     Data_error *error = dataErrorFromJsonString(value);
     err_msg("Error=>Code:%ld, Message:%s", error->code, error->msg);

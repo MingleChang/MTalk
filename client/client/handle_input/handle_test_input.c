@@ -15,7 +15,7 @@ void handle_test_input(char *data) {
         err_msg("test [string]");
         return;
     }
-    Protocol head;
+    struct protocol head;
     head.version = PROTOCOL_VERSION;
     head.auth = PROTOCOL_AUTH;
     head.type = PROTOCOL_TYPE_TEST;

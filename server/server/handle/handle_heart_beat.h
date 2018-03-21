@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "base_socket.h"
 
-int handleHeartBeat(Base_socket *socket);
+int handleHeartBeat(struct base_socket *socket);
 
 #endif /* handle_heart_beat_h */

@@ -9,6 +9,6 @@
 #include "handle_send_recv.h"
 #include "client.h"
 
-void handle_send_recv(Protocol head, void *data) {
+void handle_send_recv(struct protocol head, void *data) {
     err_msg("send message success");
 }

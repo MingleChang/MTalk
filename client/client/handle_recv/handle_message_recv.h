@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "protocol.h"
 
-void handle_message_recv(Protocol head, void *data);
+void handle_message_recv(struct protocol head, void *data);
 
 #endif /* handle_message_recv_h */

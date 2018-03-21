@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "base_socket.h"
 
-int handleLogin(Base_socket *socket);
+int handleLogin(struct base_socket *socket);
 
 #endif /* handle_login_h */

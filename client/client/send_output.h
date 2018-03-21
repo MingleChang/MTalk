@@ -12,6 +12,6 @@
 #include <stdio.h>
 #include "protocol.h"
 
-void send_output(Protocol head, char *data);
+void send_output(struct protocol head, char *data);
 
 #endif /* send_output_h */
