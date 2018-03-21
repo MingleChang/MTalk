@@ -1,0 +1,59 @@
+AUTOMAKE_OPTIONS = foreign subdir-objects
+bin_PROGRAMS = server
+AM_CPPFLAGS = -I./protocol -I./handle -I./cJSON
+server_SOURCES = tcp_listen.c \
+send_data.c \
+send_data.h \
+fd_queue.c \
+fd_queue.h \
+server.c \
+server.h \
+utils.c \
+utils.h \
+error.c \
+base_socket.c \
+base_socket.h \
+cJSON/cJSON.c \
+cJSON/cJSON.h \
+handle/handle.c \
+handle/handle.h \
+handle/handle_heart_beat.c \
+handle/handle_heart_beat.h \
+handle/handle_login.c \
+handle/handle_login.h \
+handle/handle_send.c \
+handle/handle_send.h \
+handle/handle_test.c \
+handle/handle_test.h \
+handle/handle_user_list.c \
+handle/handle_user_list.h \
+protocol/protocol.c \
+protocol/protocol.h \
+protocol/data_error.c \
+protocol/data_error.h \
+protocol/login_request.c \
+protocol/login_request.h \
+protocol/login_response.c \
+protocol/login_response.h \
+protocol/logout_request.c \
+protocol/logout_request.h \
+protocol/logout_response.c \
+protocol/logout_response.h \
+protocol/message.c \
+protocol/message.h \
+protocol/register_request.c \
+protocol/register_request.h \
+protocol/register_response.c \
+protocol/register_response.h \
+protocol/send_msg_request.c \
+protocol/send_msg_request.h \
+protocol/send_msg_response.c \
+protocol/send_msg_response.h \
+protocol/user_info_request.c \
+protocol/user_info_request.h \
+protocol/user_info_response.c \
+protocol/user_info_response.h \
+protocol/user_list_request.c \
+protocol/user_list_request.h \
+protocol/user_list_response.c \
+protocol/user_list_response.h
