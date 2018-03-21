@@ -16,7 +16,6 @@
 #include <netdb.h>
 #include <stdarg.h>
 #include <string.h>
-#include <sys/event.h>
 #include <sys/errno.h>
 #include <sys/time.h>
 #include <fcntl.h>

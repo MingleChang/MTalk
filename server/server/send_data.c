@@ -10,7 +10,7 @@
 
 void send_data(int fd, struct protocol *head, char *data) {
     char *buff = (char *)malloc(sizeof(struct protocol) + head->length);
-    memcpy(buff, &head, sizeof(struct protocol));
+    memcpy(buff, head, sizeof(struct protocol));
     memcpy(buff + sizeof(struct protocol), data, head->length);
     write(fd, buff, sizeof(struct protocol) + head->length);
     err_msg("send to %d type %d data %s", fd, head->type, data);

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "main:client.c">
+      </ContextState>
+      <ContextState
+         contextName = "handle_recv:handle_recv.c">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

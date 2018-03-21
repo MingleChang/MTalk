@@ -48,7 +48,7 @@ void dispatch(int fd, uint8_t event) {
 
 int main(int argc, const char * argv[]) {
     char *host = NULL;
-    char *serv = "8000";
+    char *serv = "8080";
     socklen_t addrlen;
     listenfd = Tcp_listen(host, serv, &addrlen);
     Set_non_block(listenfd);

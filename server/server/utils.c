@@ -7,6 +7,7 @@
 //
 
 #include "server.h"
+#include <uuid/uuid.h>
 
 char *create_uuid(void) {
     char *result = (char *)malloc(33);

@@ -26,11 +26,12 @@ static void sig_alrm(int signo) {
 int main(int argc, const char * argv[]) {
     req_no = 0;
     user_id = NULL;
-    char *host = "127.0.0.1";
-    char *serv = "8000";
+    char *host = "45.77.197.226";
+//    char *host = "127.0.0.1";
+    char *serv = "8080";
     int maxfdpi;
     ssize_t n;
-    size_t max_length;
+    size_t max_length = 0;
     fd_set rset;
     struct protocol head;
     void *head_buff = NULL, *data_buff = NULL;

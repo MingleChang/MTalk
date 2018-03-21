@@ -10,6 +10,7 @@
 
 #ifdef __APPLE__
 
+#include <sys/event.h>
 int fd_queue_init() {
     int result = kqueue();
     return result;
@@ -51,6 +52,8 @@ void fd_queue_dispatch(int fq, void (*callback)(int fd, uint8_t event)) {
     }
 }
 #else
+
+#include <sys/epoll.h>
 int fd_queue_init() {
     int result = epoll_create(MAXLINE);
     return result;
