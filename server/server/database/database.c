@@ -12,7 +12,7 @@
 static sqlite3 *db;
 
 int db_init(void) {
-    int result = sqlite3_open("/mtalk.sqlite", &db);
+    int result = sqlite3_open("mtalk.sqlite", &db);
     return result;
 }
 
