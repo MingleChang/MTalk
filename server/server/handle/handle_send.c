@@ -23,15 +23,15 @@ int handleSend(struct base_socket *socket) {
     while (temp_socket != NULL) {
         if (strcmp(temp_socket->user_id, request->to_user) == 0) {
             char *uuid = Create_uuid();
-            Message *message = messageInit(uuid, request->type, request->from_user, request->to_user, request->message);
-            char *json = messageToJsonString(message);
+            Send_message *message = sendMessageInit(uuid, request->type, request->from_user, request->to_user, request->message);
+            char *json = sendMessageToJsonString(message);
             struct protocol messageHead;
             messageHead.version = PROTOCOL_VERSION;
             messageHead.auth = PROTOCOL_AUTH;
             messageHead.type = PROTOCOL_TYPE_SEND_MSG;
             messageHead.length = (uint32_t)strlen(json) + 1;
             Send_data(temp_socket->fd, &messageHead, json);
-            messageFree(message);
+            sendMessageFree(message);
             free(uuid);
             free(json);
             break;

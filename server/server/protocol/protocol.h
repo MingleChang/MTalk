@@ -23,7 +23,8 @@
 #include "user_list_response.h"
 #include "send_msg_request.h"
 #include "send_msg_response.h"
-#include "message.h"
+#include "send_message.h"
+#include "recv_message.h"
 #include "typedefs.h"
 
 #define PROTOCOL_VERSION 0x0001

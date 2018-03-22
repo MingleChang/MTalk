@@ -51,6 +51,12 @@ void dispatch(int fd, uint8_t event) {
 int main(int argc, const char * argv[]) {
     char *host = NULL;
     char *serv = "8080";
+    int result;
+    if ((result = db_init()) != 0) {
+        err_msg("database create failed %d ...", result);
+        return -1;
+    }
+    
     socklen_t addrlen;
     listenfd = Tcp_listen(host, serv, &addrlen);
     Set_non_block(listenfd);

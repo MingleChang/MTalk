@@ -46,8 +46,10 @@ protocol/logout_request.c \
 protocol/logout_request.h \
 protocol/logout_response.c \
 protocol/logout_response.h \
-protocol/message.c \
-protocol/message.h \
+protocol/send_message.c \
+protocol/send_message.h \
+protocol/recv_message.c \
+protocol/recv_message.h \
 protocol/register_request.c \
 protocol/register_request.h \
 protocol/register_response.c \
@@ -63,4 +65,10 @@ protocol/user_info_response.h \
 protocol/user_list_request.c \
 protocol/user_list_request.h \
 protocol/user_list_response.c \
-protocol/user_list_response.h
+protocol/user_list_response.h \
+models/user_info.c \
+models/user_info.h \
+models/message.c \
+models/message.h \
+database/database.c \
+database/database.h

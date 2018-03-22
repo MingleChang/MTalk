@@ -32,6 +32,7 @@
 #include "fd_queue.h"
 #include "send_data.h"
 #include "typedefs.h"
+#include "database.h"
 
 #define LISTENQ 1024
 #define MAXLINE 4096

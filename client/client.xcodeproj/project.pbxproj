@@ -35,13 +35,14 @@
 		823B70DF205A5B1200949F06 /* handle_user_list_recv.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70DD205A5B1200949F06 /* handle_user_list_recv.c */; };
 		823B70E2205A718C00949F06 /* handle_send_input.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70E0205A718C00949F06 /* handle_send_input.c */; };
 		823B70E8205A7A5700949F06 /* handle_send_recv.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70E6205A7A5700949F06 /* handle_send_recv.c */; };
-		823B70EE205A7B5900949F06 /* message.c in Sources */ = {isa = PBXBuildFile; fileRef = 823B70EC205A7B5800949F06 /* message.c */; };
 		824BFB20205B59ED009AE8E5 /* handle_message_recv.c in Sources */ = {isa = PBXBuildFile; fileRef = 824BFB1E205B59ED009AE8E5 /* handle_message_recv.c */; };
 		8270E2DB204D17A10096A094 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2D9204D17A10096A094 /* client.c */; };
 		8270E2DD204D18470096A094 /* tcp_connect.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2DC204D18470096A094 /* tcp_connect.c */; };
 		8270E2DF204D191C0096A094 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2DE204D191C0096A094 /* error.c */; };
 		82BE197B20637F750003323A /* handle_logout_input.c in Sources */ = {isa = PBXBuildFile; fileRef = 82BE197920637F750003323A /* handle_logout_input.c */; };
 		82BE197E206380380003323A /* handle_logout_recv.c in Sources */ = {isa = PBXBuildFile; fileRef = 82BE197C206380380003323A /* handle_logout_recv.c */; };
+		82BE19942063A00D0003323A /* recv_message.c in Sources */ = {isa = PBXBuildFile; fileRef = 82BE19912063A00D0003323A /* recv_message.c */; };
+		82BE19952063A00D0003323A /* send_message.c in Sources */ = {isa = PBXBuildFile; fileRef = 82BE19932063A00D0003323A /* send_message.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,8 +114,6 @@
 		823B70E1205A718C00949F06 /* handle_send_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_send_input.h; sourceTree = "<group>"; };
 		823B70E6205A7A5700949F06 /* handle_send_recv.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_send_recv.c; sourceTree = "<group>"; };
 		823B70E7205A7A5700949F06 /* handle_send_recv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_send_recv.h; sourceTree = "<group>"; };
-		823B70EC205A7B5800949F06 /* message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = message.c; sourceTree = "<group>"; };
-		823B70ED205A7B5800949F06 /* message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = message.h; sourceTree = "<group>"; };
 		824BFB1E205B59ED009AE8E5 /* handle_message_recv.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_message_recv.c; sourceTree = "<group>"; };
 		824BFB1F205B59ED009AE8E5 /* handle_message_recv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_message_recv.h; sourceTree = "<group>"; };
 		8270E2CF204D17500096A094 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +126,10 @@
 		82BE197A20637F750003323A /* handle_logout_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_logout_input.h; sourceTree = "<group>"; };
 		82BE197C206380380003323A /* handle_logout_recv.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_logout_recv.c; sourceTree = "<group>"; };
 		82BE197D206380380003323A /* handle_logout_recv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_logout_recv.h; sourceTree = "<group>"; };
+		82BE19902063A00D0003323A /* send_message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = send_message.h; sourceTree = "<group>"; };
+		82BE19912063A00D0003323A /* recv_message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = recv_message.c; sourceTree = "<group>"; };
+		82BE19922063A00D0003323A /* recv_message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recv_message.h; sourceTree = "<group>"; };
+		82BE19932063A00D0003323A /* send_message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = send_message.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +184,10 @@
 				823B7096205A110500949F06 /* user_list_request.h */,
 				823B7097205A110500949F06 /* user_list_response.c */,
 				823B7098205A110500949F06 /* user_list_response.h */,
-				823B70EC205A7B5800949F06 /* message.c */,
-				823B70ED205A7B5800949F06 /* message.h */,
+				82BE19912063A00D0003323A /* recv_message.c */,
+				82BE19922063A00D0003323A /* recv_message.h */,
+				82BE19932063A00D0003323A /* send_message.c */,
+				82BE19902063A00D0003323A /* send_message.h */,
 			);
 			name = protocol;
 			path = ../../server/server/protocol;
@@ -324,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				823B709D205A110500949F06 /* logout_response.c in Sources */,
+				82BE19952063A00D0003323A /* send_message.c in Sources */,
 				823B70A5205A110500949F06 /* user_info_response.c in Sources */,
 				823B70C6205A52E100949F06 /* handle_input.c in Sources */,
 				823B70D3205A59B600949F06 /* handle_recv.c in Sources */,
@@ -346,6 +352,7 @@
 				822F7A3B2057C34F007727FA /* send_output.c in Sources */,
 				823B70CC205A534500949F06 /* handle_login_input.c in Sources */,
 				8270E2DD204D18470096A094 /* tcp_connect.c in Sources */,
+				82BE19942063A00D0003323A /* recv_message.c in Sources */,
 				82BE197B20637F750003323A /* handle_logout_input.c in Sources */,
 				823B709E205A110500949F06 /* protocol.c in Sources */,
 				823B70A6205A110500949F06 /* user_list_request.c in Sources */,
@@ -357,7 +364,6 @@
 				823B70A3205A110500949F06 /* send_msg_response.c in Sources */,
 				823B70D9205A59F200949F06 /* handle_error_recv.c in Sources */,
 				8270E2DB204D17A10096A094 /* client.c in Sources */,
-				823B70EE205A7B5900949F06 /* message.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

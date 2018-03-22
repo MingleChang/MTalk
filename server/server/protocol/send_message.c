@@ -1,18 +1,18 @@
 //
-//  message.c
+//  send_message.c
 //  server
 //
-//  Created by Mingle on 2018/3/15.
+//  Created by Mingle on 2018/3/22.
 //  Copyright © 2018年 Mingle. All rights reserved.
 //
 
-#include "message.h"
+#include "send_message.h"
 #include "cJSON.h"
 #include <stdlib.h>
 #include <string.h>
 
-Message *messageInit(char *id, uint32_t type, char *from, char *to, char *value) {
-    Message *message = malloc(sizeof(Message));
+Send_message *sendMessageInit(char *id, uint32_t type, char *from, char *to, char *value) {
+    Send_message *message = malloc(sizeof(Send_message));
     size_t length;
     
     length = strlen(id) + 1;
@@ -42,18 +42,18 @@ Message *messageInit(char *id, uint32_t type, char *from, char *to, char *value)
     message->value[length] = '\0';
     return message;
 }
-Message *messageFromJsonString(char *json) {
+Send_message *sendMessageFromJsonString(char *json) {
     cJSON *root = cJSON_Parse(json);
     cJSON *id = cJSON_GetObjectItem(root, "id");
     cJSON *type = cJSON_GetObjectItem(root, "type");
     cJSON *from = cJSON_GetObjectItem(root, "from");
     cJSON *to = cJSON_GetObjectItem(root, "to");
     cJSON *value = cJSON_GetObjectItem(root, "value");
-    Message *message = messageInit(id->valuestring, type->valueint, from->valuestring, to->valuestring, value->valuestring);
+    Send_message *message = sendMessageInit(id->valuestring, type->valueint, from->valuestring, to->valuestring, value->valuestring);
     cJSON_Delete(root);
     return message;
 }
-char *messageToJsonString(Message *message) {
+char *sendMessageToJsonString(Send_message *message) {
     char *result;
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "id", message->id);
@@ -65,7 +65,7 @@ char *messageToJsonString(Message *message) {
     cJSON_Delete(root);
     return result;
 }
-void messageFree(Message *message) {
+void sendMessageFree(Send_message *message) {
     if (message->id != NULL) {
         free(message->id);
         message->id = NULL;

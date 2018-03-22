@@ -11,6 +11,6 @@
 
 void handle_message_recv(struct protocol head, void *data) {
     char *value = (char *)data;
-    Message *message = messageFromJsonString(value);
+    Recv_message *message = recvMessageFromJsonString(value);
     err_msg("recv message\n id:%s\n from:%s\n content:%s",message->id, message->from, message->value);
 }
