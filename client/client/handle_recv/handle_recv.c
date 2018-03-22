@@ -14,6 +14,7 @@
 #include "handle_user_list_recv.h"
 #include "handle_send_recv.h"
 #include "handle_message_recv.h"
+#include "handle_logout_recv.h"
 
 void handle_recv(struct protocol head, void *data) {
     if (head.auth != PROTOCOL_AUTH) {
@@ -34,7 +35,7 @@ void handle_recv(struct protocol head, void *data) {
             
         }break;
         case PROTOCOL_TYPE_LOGOUT_RES:{
-            
+            handle_logout_recv(head, data);
         }break;
         case PROTOCOL_TYPE_USER_INFO_RES:{
             

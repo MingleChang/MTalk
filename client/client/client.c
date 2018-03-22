@@ -44,6 +44,7 @@ int main(int argc, const char * argv[]) {
     err_msg("Connect Success...");
     err_msg("test [string]");
     err_msg("login [username] [password]");
+    err_msg("logout");
     err_msg("userlist");
     err_msg("send [user_id] [message]");
     FD_ZERO(&rset);

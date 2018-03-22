@@ -61,9 +61,9 @@ int fd_queue_init() {
 }
 void fd_queue_add_event(int fq, int fd, uint8_t event) {
     struct epoll_event ev;
-    //边缘触发
-    ev.events = EPOLLIN | EPOLLOUT | EPOLLPRI | EPOLLERR | EPOLLHUP;
     //水平触发
+    ev.events = EPOLLIN | EPOLLOUT | EPOLLPRI | EPOLLERR | EPOLLHUP;
+    //边缘触发
 //    ev.events = EPOLLIN | EPOLLOUT | EPOLLET | EPOLLPRI | EPOLLERR | EPOLLHUP;
     ev.data.fd = fd;
     epoll_ctl(fq, EPOLL_CTL_ADD, fd, &ev);
@@ -73,7 +73,7 @@ void fd_queue_delete_event(int fq, int fd, uint8_t event) {
 }
 void fd_queue_dispatch(int fq, void (*callback)(int fd, uint8_t event)) {
     struct epoll_event events[MAXLINE];
-    int nfds = epoll_wait(fq, events, MAXLINE, NULL);
+    int nfds = epoll_wait(fq, events, MAXLINE, 1);
     int i = 0;
     for (i = 0; i < nfds; i++) {
         int fd = events[i].data.fd;

@@ -12,6 +12,9 @@
 #include "handle_login.h"
 #include "handle_user_list.h"
 #include "handle_send.h"
+#include "handle_register.h"
+#include "handle_logout.h"
+#include "handle_user_info.h"
 
 int handle(struct base_socket *socket) {
     if (socket->head.auth != PROTOCOL_AUTH) {
@@ -30,13 +33,13 @@ int handle(struct base_socket *socket) {
             return handleLogin(socket);
         }break;
         case PROTOCOL_TYPE_REGISTER_REQ:{
-            
+            return handleRegister(socket);
         }break;
         case PROTOCOL_TYPE_LOGOUT_REQ:{
-            
+            return handleLogout(socket);
         }break;
         case PROTOCOL_TYPE_USER_INFO_REQ:{
-            
+            return handleUserInfo(socket);
         }break;
         case PROTOCOL_TYPE_USER_LIST_REQ:{
             return handleUserList(socket);

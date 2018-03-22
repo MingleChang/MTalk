@@ -24,6 +24,7 @@
 #include "send_msg_request.h"
 #include "send_msg_response.h"
 #include "message.h"
+#include "typedefs.h"
 
 #define PROTOCOL_VERSION 0x0001
 #define PROTOCOL_AUTH 0x2435

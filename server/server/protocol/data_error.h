@@ -10,6 +10,7 @@
 #define data_error_h
 
 #include <stdio.h>
+#include "typedefs.h"
 //PROTOCOL_TYPE_ERROR 错误数据结构
 struct data_error {
     uint32_t code;

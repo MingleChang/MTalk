@@ -12,6 +12,7 @@
 #include "handle_login_input.h"
 #include "handle_user_list_input.h"
 #include "handle_send_input.h"
+#include "handle_logout_input.h"
 
 void handle_input(char *input) {
     char *value = input;
@@ -22,6 +23,9 @@ void handle_input(char *input) {
     }
     if (strcmp(command, "login") == 0) {
         handle_login_input(value);
+    }
+    if (strcmp(command, "logout\n") == 0) {
+        handle_logout_input(value);
     }
     if (strcmp(command, "userlist\n") == 0) {
         handle_user_list_input(value);

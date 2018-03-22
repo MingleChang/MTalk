@@ -46,10 +46,6 @@ extern struct base_socket *base_socket_list;
 typedef struct addrinfo Addrinfo;
 typedef struct timespec Timespec;
 
-typedef unsigned int uint32_t;
-typedef unsigned short uint16_t;
-typedef unsigned char uint8_t;
-
 enum {
     SOCKET_READ  = 1,
     SOCKET_WRITE = 1<<1,

@@ -40,6 +40,8 @@
 		8270E2DB204D17A10096A094 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2D9204D17A10096A094 /* client.c */; };
 		8270E2DD204D18470096A094 /* tcp_connect.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2DC204D18470096A094 /* tcp_connect.c */; };
 		8270E2DF204D191C0096A094 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 8270E2DE204D191C0096A094 /* error.c */; };
+		82BE197B20637F750003323A /* handle_logout_input.c in Sources */ = {isa = PBXBuildFile; fileRef = 82BE197920637F750003323A /* handle_logout_input.c */; };
+		82BE197E206380380003323A /* handle_logout_recv.c in Sources */ = {isa = PBXBuildFile; fileRef = 82BE197C206380380003323A /* handle_logout_recv.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -120,6 +122,11 @@
 		8270E2DA204D17A10096A094 /* client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
 		8270E2DC204D18470096A094 /* tcp_connect.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = tcp_connect.c; sourceTree = "<group>"; };
 		8270E2DE204D191C0096A094 /* error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
+		828D0F6620633D38009D175E /* typedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = typedefs.h; path = ../../server/server/typedefs.h; sourceTree = "<group>"; };
+		82BE197920637F750003323A /* handle_logout_input.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_logout_input.c; sourceTree = "<group>"; };
+		82BE197A20637F750003323A /* handle_logout_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_logout_input.h; sourceTree = "<group>"; };
+		82BE197C206380380003323A /* handle_logout_recv.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = handle_logout_recv.c; sourceTree = "<group>"; };
+		82BE197D206380380003323A /* handle_logout_recv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handle_logout_recv.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +201,8 @@
 				823B70CE205A544D00949F06 /* handle_user_list_input.h */,
 				823B70E0205A718C00949F06 /* handle_send_input.c */,
 				823B70E1205A718C00949F06 /* handle_send_input.h */,
+				82BE197920637F750003323A /* handle_logout_input.c */,
+				82BE197A20637F750003323A /* handle_logout_input.h */,
 			);
 			path = handle_input;
 			sourceTree = "<group>";
@@ -215,6 +224,8 @@
 				823B70E7205A7A5700949F06 /* handle_send_recv.h */,
 				824BFB1E205B59ED009AE8E5 /* handle_message_recv.c */,
 				824BFB1F205B59ED009AE8E5 /* handle_message_recv.h */,
+				82BE197C206380380003323A /* handle_logout_recv.c */,
+				82BE197D206380380003323A /* handle_logout_recv.h */,
 			);
 			path = handle_recv;
 			sourceTree = "<group>";
@@ -250,6 +261,7 @@
 				822F7A3A2057C34F007727FA /* send_output.h */,
 				823B70BE205A480100949F06 /* utils.c */,
 				823B70BD205A47FB00949F06 /* utils.h */,
+				828D0F6620633D38009D175E /* typedefs.h */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -324,6 +336,7 @@
 				823B7099205A110500949F06 /* data_error.c in Sources */,
 				823B70CF205A544D00949F06 /* handle_user_list_input.c in Sources */,
 				823B709A205A110500949F06 /* login_request.c in Sources */,
+				82BE197E206380380003323A /* handle_logout_recv.c in Sources */,
 				8270E2DF204D191C0096A094 /* error.c in Sources */,
 				823B70A1205A110500949F06 /* register_response.c in Sources */,
 				824BFB20205B59ED009AE8E5 /* handle_message_recv.c in Sources */,
@@ -333,6 +346,7 @@
 				822F7A3B2057C34F007727FA /* send_output.c in Sources */,
 				823B70CC205A534500949F06 /* handle_login_input.c in Sources */,
 				8270E2DD204D18470096A094 /* tcp_connect.c in Sources */,
+				82BE197B20637F750003323A /* handle_logout_input.c in Sources */,
 				823B709E205A110500949F06 /* protocol.c in Sources */,
 				823B70A6205A110500949F06 /* user_list_request.c in Sources */,
 				823B70BF205A480100949F06 /* utils.c in Sources */,
