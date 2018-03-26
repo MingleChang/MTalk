@@ -19,5 +19,11 @@ struct message {
     char *to;
     char *value;
 };
+typedef struct message Message;
+
+Message *messageInit(char *id, uint32_t type, char *from, char *to, char *value);
+Message *messageFromJsonString(char *json);
+char *messageToJsonString(Message *message);
+void messageFree(Message *message);
 
 #endif /* message_h */

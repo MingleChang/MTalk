@@ -16,5 +16,11 @@ struct user_info {
     char *username;
     char *password;
 };
+typedef struct user_info UserInfo;
+
+UserInfo *userInfoInit(char *id, char *username, char *password);
+UserInfo *userInfoFromJsonString(char *json);
+char *userInfoToJsonString(UserInfo *user);
+void userInfoFree(UserInfo *user);
 
 #endif /* user_info_h */
