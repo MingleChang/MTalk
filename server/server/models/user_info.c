@@ -68,3 +68,37 @@ void userInfoFree(UserInfo *user) {
     }
     free(user);
 }
+
+void userInfoSetId(UserInfo *user, char *id) {
+    if (user->id != NULL) {
+        free(user->id);
+        user->id = NULL;
+    }
+    size_t length = strlen(id) + 1;
+    user->id = malloc(length);
+    memset(user->id, 0, length);
+    strcpy(user->id, id);
+    user->id[length] = '\0';
+}
+void userInfoSetUsername(UserInfo *user, char *username) {
+    if (user->username != NULL) {
+        free(user->username);
+        user->username = NULL;
+    }
+    size_t length = strlen(username) + 1;
+    user->username = malloc(length);
+    memset(user->username, 0, length);
+    strcpy(user->username, username);
+    user->username[length] = '\0';
+}
+void userInfoSetPassword(UserInfo *user, char *password) {
+    if (user->password != NULL) {
+        free(user->password);
+        user->password = NULL;
+    }
+    size_t length = strlen(password) + 1;
+    user->password = malloc(length);
+    memset(user->password, 0, length);
+    strcpy(user->password, password);
+    user->password[length] = '\0';
+}

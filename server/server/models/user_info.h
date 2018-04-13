@@ -23,4 +23,8 @@ UserInfo *userInfoFromJsonString(char *json);
 char *userInfoToJsonString(UserInfo *user);
 void userInfoFree(UserInfo *user);
 
+void userInfoSetId(UserInfo *user, char *id);
+void userInfoSetUsername(UserInfo *user, char *username);
+void userInfoSetPassword(UserInfo *user, char *password);
+
 #endif /* user_info_h */
